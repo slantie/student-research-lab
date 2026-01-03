@@ -2,96 +2,117 @@ import logo from "../assets/SRL Logo.png";
 import BlurText from "./ui/BlurText";
 
 const Hero = () => {
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <section className="py-28 px-6 mx-4">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+    <section
+      id="home"
+      className="
+        min-h-screen
+        pt-28
+        pb-4
+        px-4 sm:px-6
+        scroll-mt-28
+      "
+    >
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
         {/* LEFT COLUMN */}
-        <div className="lg:pr-8">
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
+        <div className="lg:pr-6 text-center lg:text-left">
+
+          {/* MAIN TITLE */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-5 text-[#1F1F1F]">
             <BlurText
-              text="Transforming  Notion  into  innovation"
-              delay={140}
+              text="Transforming Notion into"
+              delay={120}
               animateBy="words"
               direction="left"
-              onAnimationComplete={() =>
-                console.log("Hero heading animation completed")
-              }
+              className="inline-block"
+            />
+            <br />
+            <BlurText
+              text="Innovation"
+              delay={180}
+              animateBy="words"
+              direction="left"
               className="text-[#115E59]"
             />
           </h1>
 
-          <p className="max-w-xl leading-relaxed mb-12">
+          {/* SUBTITLE */}
+          <p className="max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8 text-[#3A3A35]">
             We are a collaborative hub where undergraduate and graduate students
             tackle real-world problems through interdisciplinary research.
           </p>
 
-          {/* Hero Buttons */}
-          <div className="flex flex-wrap gap-8 mb-20">
+          {/* HERO BUTTONS */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <button
-              className="px-6 py-3 text-base font-semibold rounded-lg transition-colors"
-              style={{
-                backgroundColor: "#5EEAD4",
-                color: "#134E4A",
-              }}
+              onClick={() => scrollToSection("research")}
+              className="
+                px-6 py-3
+                text-base font-semibold
+                rounded-lg
+                transition-colors
+                w-full sm:w-auto
+                bg-[#5EEAD4]
+                text-[#134E4A]
+                hover:opacity-90
+              "
             >
               Explore our research →
             </button>
 
             <button
-              className="px-6 py-3 text-base font-semibold rounded-lg transition-colors"
-              style={{
-                backgroundColor: "#5EEAD4",
-                color: "#134E4A",
-              }}
+              onClick={() => scrollToSection("join")}
+              className="
+                px-6 py-3
+                text-base font-semibold
+                rounded-lg
+                transition-colors
+                w-full sm:w-auto
+                bg-[#5EEAD4]
+                text-[#134E4A]
+                hover:opacity-90
+              "
             >
               Join The Lab
             </button>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-12">
-            <Stat value="25+" label="Active Students" />
-            <Stat value="10" label="Projects" />
-            <Stat value="1" label="Mentors" />
-            <Stat value="2+" label="Publications" />
-          </div>
         </div>
 
-        {/* RIGHT COLUMN — LOGO + LAB NAME */}
-        <div className="flex items-center justify-center lg:pl-8">
+        {/* RIGHT COLUMN — LOGO */}
+        <div className="flex items-center justify-center lg:pl-6">
           <div className="text-center">
-            {/* Increased Logo Size */}
+
             <img
               src={logo}
               alt="Student Research Lab MMPSRPC KSV"
-              className="w-44 h-44 mx-auto mb-8 object-contain"
+              className="
+                w-28 h-28
+                sm:w-36 sm:h-36
+                md:w-40 md:h-40
+                mx-auto mb-6
+                object-contain
+              "
             />
 
-            {/* Increased Title Size */}
-            <h3
-              className="text-4xl font-semibold tracking-wide"
-              style={{ color: "#115E59" }}
-            >
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide text-[#115E59]">
               Student Research Lab
             </h3>
 
-            {/* Horizontal Line */}
-            <div
-              className="mx-auto mt-4 h-1 w-28 rounded-full"
-              style={{ backgroundColor: "#5EEAD4" }}
-            />
+            <div className="mx-auto mt-3 h-1 w-24 sm:w-28 rounded-full bg-[#5EEAD4]" />
           </div>
         </div>
+
       </div>
     </section>
   );
 };
-
-const Stat = ({ value, label }) => (
-  <div>
-    <div className="text-3xl font-bold">{value}</div>
-    <div className="text-sm mt-1">{label}</div>
-  </div>
-);
 
 export default Hero;

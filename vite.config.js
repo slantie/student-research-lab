@@ -10,4 +10,9 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    host: true,        // 👈 allows access from LAN (important)
+    port: 5173,        // optional (default Vite port)
+    strictPort: true,  // optional (avoids auto port switching)
+  },
 })

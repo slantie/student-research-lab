@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-
 import Navbar from "./components/Navbar";
 import Background from "./components/Background";
 import Preloader from "./components/Preloader";
-
 import Hero from "./components/Hero";
 import About from "./components/About";
 import ResearchAreas from "./components/ResearchAreas";

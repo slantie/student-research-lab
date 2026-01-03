@@ -39,7 +39,7 @@ const BlurText = ({
                 ? "translateX(-10px)"
                 : "translateX(10px)",
             marginRight: animateBy === "words" ? "0.45rem" : "0",
-            whiteSpace: "pre",
+            whiteSpace: "pre-wrap",
           }}
         >
           {unit}

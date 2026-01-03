@@ -5,6 +5,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-srl {
+    @apply
+      bg-srl-ink
+      text-srl-parchment
+      hover:bg-srl-inkMuted
+      transition-colors
+      font-medium
+      rounded-full;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -22,4 +34,17 @@ h4,
 h5,
 h6 {
   font-family: "Libre Baskerville", Georgia, serif;
+}
+
+@keyframes vibrate {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+  100% { transform: translate(0); }
+}
+
+.animate-vibrate {
+  animation: vibrate 0.3s linear infinite;
 }
