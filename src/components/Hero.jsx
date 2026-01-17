@@ -1,4 +1,4 @@
-import BlurText from "./ui/BlurText";
+import BlurText from "./ui/BlurText.jsx";
 
 const Hero = () => {
   const scrollToSection = (id) => {
