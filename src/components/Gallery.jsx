@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import Photo1 from "../assets/gallery/Photo1.jpeg";
-import Photo2 from "../assets/gallery/Photo2.jpeg";
-import Photo3 from "../assets/gallery/Photo3.jpeg";
-import Photo4 from "../assets/gallery/Photo4.jpeg";
+import Photo1 from "../assets/gallery/Photo1.webp";
+import Photo2 from "../assets/gallery/Photo2.webp";
+import Photo3 from "../assets/gallery/Photo3.webp";
+import Photo4 from "../assets/gallery/Photo4.webp";
 
 const Gallery = () => {
   const [activeItem, setActiveItem] = useState(null);

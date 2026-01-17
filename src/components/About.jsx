@@ -170,7 +170,7 @@ const About = () => {
                     "
                   >
                     <img
-                      src="/SRL Logo.png"
+                      src="/SRL Logo.webp"
                       alt="SRL Logo"
                       className="
                         sm:h-32 sm:w-32

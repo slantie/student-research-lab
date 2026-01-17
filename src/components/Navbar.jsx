@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   const menuItems = [
     { label: "Home", path: "/" },
@@ -13,36 +11,15 @@ const Navbar = () => {
     { label: "Researchers", path: "/team" },
   ];
 
-  /* ---- hide / show navbar on scroll ---- */
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-      if (currentY > lastScrollY && currentY > 80) setHidden(true);
-      else setHidden(false);
-      setLastScrollY(currentY);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
   return (
-    <nav
-      className={`
-        fixed top-0 left-0 right-0 z-50
-        bg-primary/90
-        shadow-md
-        transition-transform duration-300 ease-out
-        ${hidden ? "-translate-y-full" : "translate-y-0"}
-      `}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[72px]">
         <div className="flex items-center h-full relative">
 
           {/* LEFT — SRL Identity */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img
-              src="/SRL Logo.png"
+              src="/SRL Logo.webp"
               alt="SRL"
               className="h-10 sm:h-11 object-contain"
             />
@@ -51,34 +28,40 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* CENTER — DESKTOP MENU + APPOINTMENT */}
+          {/* CENTER — DESKTOP MENU */}
           <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
             {menuItems.map((item) => (
-              <Link
+              <NavLink
                 key={item.label}
                 to={item.path}
-                className="
-                  relative
-                  font-medium
-                  text-white/90
-                  transition-colors
-                  hover:text-white
-                  after:content-['']
-                  after:absolute
-                  after:left-0
-                  after:-bottom-1
-                  after:h-[2px]
-                  after:w-full
-                  after:bg-white/70
-                  after:scale-x-0
-                  after:origin-left
-                  after:transition-transform
-                  after:duration-300
-                  hover:after:scale-x-100
-                "
+                className={({ isActive }) =>
+                  `
+                    relative
+                    font-medium
+                    text-white/90
+                    transition-colors
+                    hover:text-white
+
+                    lg:after:content-['']
+                    lg:after:block
+                    lg:after:absolute
+                    lg:after:left-0
+                    lg:after:-bottom-1
+                    lg:after:h-[2.5px]
+                    lg:after:w-full
+                    lg:after:bg-white/70
+                    lg:after:rounded-xl
+                    lg:after:origin-left
+                    lg:after:transition-transform
+                    lg:after:duration-300
+
+                    lg:hover:after:scale-x-100
+                    ${isActive ? "lg:after:scale-x-100 text-white" : "lg:after:scale-x-0"}
+                  `
+                }
               >
                 {item.label}
-              </Link>
+              </NavLink>
             ))}
 
             {/* APPOINTMENT BUTTON */}
@@ -86,37 +69,17 @@ const Navbar = () => {
               href="https://appointment.mmpsrpc.in/student"
               target="_blank"
               rel="noopener noreferrer"
-              className="
-                px-4 py-2
-                rounded-full
-                bg-white
-                text-primary
-                font-medium
-                hover:opacity-90
-                transition
-              "
+              className="px-4 py-2 rounded-full bg-white text-primary font-medium hover:opacity-90 transition"
             >
               Appointment
             </a>
           </div>
 
-          {/* RIGHT — INSTITUTIONAL LOGOS */}
+          {/* RIGHT — LOGOS */}
           <div className="ml-auto hidden sm:flex items-center gap-3 sm:gap-4 shrink-0">
-            <img
-              src="/MMPSRPC Logo.png"
-              alt="MMPSRPC"
-              className="h-10 sm:h-11 object-contain"
-            />
-            <img
-              src="/svkm.png"
-              alt="SVKM"
-              className="h-10 sm:h-11 object-contain"
-            />
-            <img
-              src="/KSV Logo.png"
-              alt="KSV"
-              className="h-10 sm:h-11 object-contain"
-            />
+            <img src="/MMPSRPC Logo.webp" alt="MMPSRPC" className="h-10 sm:h-11" />
+            <img src="/svkm.webp" alt="SVKM" className="h-10 sm:h-11" />
+            <img src="/KSV Logo.webp" alt="KSV" className="h-10 sm:h-11" />
           </div>
 
           {/* MOBILE MENU TOGGLE */}
@@ -147,43 +110,31 @@ const Navbar = () => {
 
       {/* MOBILE MENU */}
       <div
-        className={`
-          lg:hidden
-          bg-primary/90
-          border-t border-white/10
-          overflow-hidden
-          transition-all duration-300
-          ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
-        `}
+        className={`lg:hidden bg-primary border-t border-white/10 transition-all duration-300 ${
+          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         <div className="flex flex-col px-6 py-6 gap-4">
           {menuItems.map((item) => (
-            <Link
+            <NavLink
               key={item.label}
               to={item.path}
               onClick={() => setOpen(false)}
-              className="text-left font-medium text-white"
+              className={({ isActive }) =>
+                `font-medium transition ${
+                  isActive ? "text-white" : "text-white/80"
+                }`
+              }
             >
               {item.label}
-            </Link>
+            </NavLink>
           ))}
 
-          {/* MOBILE APPOINTMENT */}
           <a
             href="https://appointment.mmpsrpc.in/student"
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              mt-4
-              inline-flex justify-center
-              px-5 py-3
-              rounded-full
-              bg-white
-              text-primary
-              font-medium
-              hover:opacity-90
-              transition
-            "
+            className="mt-4 inline-flex justify-center px-5 py-3 rounded-full bg-white text-primary font-medium hover:opacity-90 transition"
           >
             Appointment
           </a>

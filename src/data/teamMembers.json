@@ -6,300 +6,361 @@
       "department": "Computer Engineering",
       "specialization": "PhD",
       "research": "Student research frameworks, applied AI systems, institutional research development",
-      "image": "/team/faculty/Maam Photo.png"
+      "image": "/team/faculty/ma'am-photo.png",
+      "linkedin": "https://www.linkedin.com/in/dr-himani-trivedi-59210199/",
+      "institute": "LDRP-ITR"
     }
   ],
-  "students": [
+    "students": [
     {
-      "name": "Kandarp Gajjar",
-      "role": "Research Assistant",
-      "branch": "Computer Engineering",
-      "semester": "8th",
-      "research": "Smart Grid Systems",
-      "image": "/team/students/Kandarpbhai.jpg"
+      "name": "Ghetiya Poojan Rahulbhai",
+      "email": "ghetiyapoojan@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "http://linkedin.com/in/ghetiyapoojan/",
+      "Department": "CE",
+      "Semester": "1st",
+      "Batch": "2025-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Hemant Pande",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "6th",
-      "research": "Autonomous Navigation",
-      "image": "/team/students/Hemant Pande.jpg"
+      "name": "Kansara Dev Dharmeshkumar",
+      "email": "kansaradev95@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/dev-kansara-37b37037a/",
+      "Department": "CE",
+      "Semester": "4th",
+      "Batch": "2024-2028",
+      "Institute": "LDRP-ITR"
+    },
+    {
+      "name": "Gajjar Antra Ashvinkumar",
+      "email": "gajjarantra03@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/antra-gajjar-957977330/",
+      "Department": "CE",
+      "Semester": "4th",
+      "Batch": "2024-2028",
+      "Institute": "LDRP-ITR"
+    },
+    {
+      "name": "Kumavat Yash Nenaram",
+      "email": "yashnkumavat2005@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/yash-kumavat-503a6a326/D",
+      "Department": "CE",
+      "Semester": "4th",
+      "Batch": "2024-2028",
+      "Institute": "LDRP-ITR"
+    },
+    {
+      "name": "Dabhi Chrisha Manish",
+      "email": "chrishaadabhii0704@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/chrishadabhi/",
+      "Department": "CE",
+      "Semester": "4th",
+      "Batch": "2024-2028",
+      "Institute": "LDRP-ITR"
+    },
+    {
+      "name": "Rudr Jayeshkumar Halvadiya",
+      "email": "rudrhalvadiya2000@gmail.com",
+      "image": "/team/students/rudr.webp",
+      "Linkedin": "https://www.linkedin.com/in/rudr-halvadiya/",
+      "Department": "CE",
+      "Semester": "4th",
+      "Batch": "2024-2028",
+      "Institute": "LDRP-ITR"
     },
     {
       "name": "Pragati Varu",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "4th",
-      "research": "Water Quality IoT",
-      "image": "/team/students/Pragati Varu.jpeg"
+      "email": "pragativaru23@gmail.com",
+      "image": "/team/students/pragati-varu.webp",
+      "Linkedin": "https://www.linkedin.com/in/pragati-varu-18474731b/",
+      "Department": "CE",
+      "Semester": "4th",
+      "Batch": "2024-2028",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Mahi Parmar",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "4th",
-      "research": "Drone Technology",
-      "image": "/team/students/Mahi Parmar.jpg"
+      "name": "Aayush Viral Pandya",
+      "email": "pandyaaayush2006@gmail.com",
+      "image": "/team/students/aayush-pandya.webp",
+      "Linkedin": "https://www.linkedin.com/in/aayush-pandya04/",
+      "Department": "CE",
+      "Semester": "4th",
+      "Batch": "2024-2028",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Aayush Pandya",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "4th",
-      "research": "Solar Optimization",
-      "image": "/team/students/Aayush Pandya.jpeg"
+      "name": "Mahi Nitinchandra Parmar",
+      "email": "mahiparmar2708@gmail.com",
+      "image": "/team/students/mahi-parmar.webp",
+      "Linkedin": "https://www.linkedin.com/in/mahi-parmar-42a17131a/",
+      "Department": "CE",
+      "Semester": "4th",
+      "Batch": "2024-2028",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Rudr Halvadiya",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "4th",
-      "research": "Predictive Maintenance",
-      "image": "/team/students/Rudr.png"
-    },
-
-    {
-      "name": "Student Member 07",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "5th",
-      "research": "IoT Systems",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Honey Modha",
+      "email": "honeymodha02@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/honey-modha/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 08",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "5th",
-      "research": "Machine Learning",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Prem Raichura",
+      "email": "premraichura7@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/prem-raichura/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 09",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "6th",
-      "research": "Computer Vision",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Hetvi Hinsu",
+      "email": "hetvi0925@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/hetvi-hinsu-4a87aa288/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 10",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "6th",
-      "research": "Embedded Systems",
-      "image": "/team/students/placeholder.jpg"
-    },
-
-    {
-      "name": "Student Member 11",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "7th",
-      "research": "AI Optimization",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Patel Banshari Rahulkumar",
+      "email": "bansharipatel6595@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/banshari-patel-b699542b5/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 12",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "7th",
-      "research": "Cyber Security",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Mihir Patel",
+      "email": "mihir.rockshi@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/patelmihir2715/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 13",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "5th",
-      "research": "Cloud Computing",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Heny Patel",
+      "email": "henypatel26012005@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/heny-patel-22a8b9262/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 14",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "4th",
-      "research": "Blockchain",
-      "image": "/team/students/placeholder.jpg"
-    },
-
-    {
-      "name": "Student Member 15",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "4th",
-      "research": "Data Analytics",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Patel Krish Himanshu",
+      "email": "krishp728@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/krish-patel-24285827b/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 16",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "5th",
-      "research": "Robotics",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Pande Hemant Rameshwarkumar",
+      "email": "hp926591@gmail.com",
+      "image": "/team/students/hemantbhai.webp",
+      "Linkedin": "https://www.linkedin.com/in/hemant-pande926591/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 17",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "6th",
-      "research": "Edge Computing",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Devda Rachita Bharatsinh",
+      "email": "rachitadevda0410@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/rachita-devda-b83834326/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 18",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "7th",
-      "research": "Natural Language Processing",
-      "image": "/team/students/placeholder.jpg"
-    },
-
-    {
-      "name": "Student Member 19",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "8th",
-      "research": "Smart Healthcare",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Patel Jainee Hasmukhbhai",
+      "email": "jainu2426@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/jainee-patel-242006j/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 20",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "8th",
-      "research": "AI in Agriculture",
-      "image": "/team/students/placeholder.jpg"
-    },
-
-    {
-      "name": "Student Member 21",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "6th",
-      "research": "Digital Twins",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Krishna Bhatt",
+      "email": "bhattkrishna0908@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/krishnabhatt2958/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 22",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "5th",
-      "research": "AR/VR",
-      "image": "/team/students/placeholder.jpg"
-    },
-
-    {
-      "name": "Student Member 23",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "4th",
-      "research": "Green Computing",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Chavda Yashvi Surendrasinh",
+      "email": "yashvichavda6@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/yashvi-chavda-b71047287/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 24",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "7th",
-      "research": "Smart Cities",
-      "image": "/team/students/placeholder.jpg"
-    },
-
-    {
-      "name": "Student Member 25",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "6th",
-      "research": "Explainable AI",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Padh Charmi Ketankumar",
+      "email": "charmi.padh030206@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/charmi-padh/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 26",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "5th",
-      "research": "Autonomous Systems",
-      "image": "/team/students/placeholder.jpg"
-    },
-
-    {
-      "name": "Student Member 27",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "7th",
-      "research": "Smart Energy Systems",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Panchal Henit Shaileshbhai",
+      "email": "henitpanchal007@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/henit-panchal-250524274/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 28",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "8th",
-      "research": "Human Computer Interaction",
-      "image": "/team/students/placeholder.jpg"
-    },
-
-    {
-      "name": "Student Member 29",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "4th",
-      "research": "Software Architecture",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Jenish Sorathiya",
+      "email": "23beit54020@vsitr.ac.in",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/jenish-sorathiya-419b042a5/",
+      "Department": "IT",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "VSITR"
     },
     {
-      "name": "Student Member 30",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "6th",
-      "research": "Distributed Systems",
-      "image": "/team/students/placeholder.jpg"
-    },
-
-    {
-      "name": "Student Member 31",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "5th",
-      "research": "Quantum Computing",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Kanksha Keyur Buch",
+      "email": "kanksha.buch@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/kanksha-buch-7b17a131b/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 32",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "7th",
-      "research": "AI Ethics",
-      "image": "/team/students/placeholder.jpg"
-    },
-
-    {
-      "name": "Student Member 33",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "4th",
-      "research": "Web Performance",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Janki Chitroda",
+      "email": "jankichitroda8@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/janki-chitroda-66a3782b8/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 34",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "6th",
-      "research": "DevOps Automation",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Rohan Thakar",
+      "email": "rpthakar35@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
     },
     {
-      "name": "Student Member 35",
-      "role": "Undergraduate Student",
-      "branch": "Computer Engineering",
-      "semester": "8th",
-      "research": "Intelligent Systems",
-      "image": "/team/students/placeholder.jpg"
+      "name": "Kanudawala Zeel PareshKumar",
+      "email": "zeelkanudawala@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/zeel-kanudawala-3b81412b5/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
+    },
+    {
+      "name": "Zenisha Devani",
+      "email": "zenishadevani@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/zenisha-devani-4aba532b1/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
+    },
+    {
+      "name": "Yajurshi Velani",
+      "email": "yajurshivelani@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/yajurshi-velani/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
+    },
+    {
+      "name": "Parva Kumar",
+      "email": "parva300504@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/parva-kumar/",
+      "Department": "CE",
+      "Semester": "6th",
+      "Batch": "2023-2027",
+      "Institute": "LDRP-ITR"
+    },
+    {
+      "name": "Kandarp Dipakkumar Gajjar",
+      "email": "kandarp.gajjar.460@gmail.com",
+      "image": "/team/students/kandarpbhai.webp",
+      "Linkedin": "https://www.linkedin.com/in/kandarpgajjar/",
+      "Department": "CE",
+      "Semester": "8th",
+      "Batch": "2022-2026",
+      "Institute": "LDRP-ITR"
+    },
+    {
+      "name": "Ridham Patel",
+      "email": "ridhampatel2k4@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/ridhampatel2k4/",
+      "Department": "IT",
+      "Semester": "8th",
+      "Batch": "2022-2026",
+      "Institute": "LDRP-ITR"
+    },
+    {
+      "name": "Nancy Rajesh Patel",
+      "email": "nancyp9210@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/xcodenancy/",
+      "Department": "IT",
+      "Semester": "8th",
+      "Batch": "2022-2026",
+      "Institute": "LDRP-ITR"
+    },
+    {
+      "name": "Krutika Vijaybhai Patel",
+      "email": "krutika8114@gmail.com",
+      "image": "/team/students/kansara-dev.png",
+      "Linkedin": "https://www.linkedin.com/in/stack-krutika/",
+      "Department": "IT",
+      "Semester": "8th",
+      "Batch": "2022-2026",
+      "Institute": "LDRP-ITR"
     }
   ]
 }

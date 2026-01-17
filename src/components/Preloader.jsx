@@ -4,7 +4,7 @@ const Preloader = () => {
 
       {/* Logo from public folder */}
       <img
-        src="/SRL Logo.png"   // make sure filename matches
+        src="/SRL Logo.webp"
         alt="MMPSRPC"
         className="w-40 heartbeat-ultra"
       />

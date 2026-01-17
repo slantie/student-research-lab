@@ -14,6 +14,7 @@ import JoinLab from "./components/JoinLab";
 import ResearchAreas from "./components/ResearchAreas";
 import Gallery from "./components/Gallery";
 import Team from "./components/Team";
+import BackToTop from "./components/BackToTop";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,7 @@ export default function App() {
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
 
-        <main className="flex-1 pt-16 overflow-hidden">
+        <main className="flex-1 pt-[72px] overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={location.pathname}
@@ -67,6 +68,7 @@ export default function App() {
         </main>
 
         <Footer />
+        <BackToTop />
       </div>
     </>
   );

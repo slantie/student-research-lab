@@ -1,4 +1,3 @@
-import logo from "C:/Users/pandy/OneDrive/Desktop/ReactJS/student-research-lab/public/SRL_Logo.webp";
 import BlurText from "./ui/BlurText";
 
 const Hero = () => {
@@ -103,7 +102,7 @@ const Hero = () => {
         <div className="flex items-center justify-center lg:pl-6 mt-10 lg:mt-0">
           <div className="text-center">
             <img
-              src={logo}
+              src="/SRL Logo.webp"
               alt="Student Research Lab MMPSRPC KSV"
               className="
                 w-28 h-28
