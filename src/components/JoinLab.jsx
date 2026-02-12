@@ -33,7 +33,7 @@ const JoinLab = () => {
           </p>
 
           {/* PROCESS STEPS */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 mb-12 sm:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10 mb-12 sm:mb-16">
             {/* STEP 01 */}
             <div
               className="

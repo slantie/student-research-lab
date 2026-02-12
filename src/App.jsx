@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Timeline from "./components/Timeline";
 import JoinLab from "./components/JoinLab";
 
 import ResearchAreas from "./components/ResearchAreas";
@@ -36,7 +37,7 @@ export default function App() {
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
 
-        <main className="flex-1 pt-[72px] overflow-hidden">
+        <main className="flex-1 pt-[88px] overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={location.pathname}
@@ -55,6 +56,7 @@ export default function App() {
                     <>
                       <Hero />
                       <About />
+                      <Timeline />
                       <JoinLab />
                     </>
                   }

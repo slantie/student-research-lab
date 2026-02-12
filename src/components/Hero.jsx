@@ -11,7 +11,7 @@ const Hero = () => {
     <section
       id="home"
       className="
-        h-screen
+        min-h-screen
         sm:pt-28 lg:pt-32
         pb-10 sm:pb-8
         px-4 sm:px-6 md:px-8
@@ -24,9 +24,9 @@ const Hero = () => {
           {/* MAIN TITLE */}
           <h1
             className="
-            text-4xl sm:text-5xl lg:text-6xl
+            text-3xl sm:text-5xl lg:text-6xl
             font-extrabold
-            leading-tight sm:leading-tight lg:leading-[1.15]
+            leading-snug sm:leading-tight lg:leading-[1.15]
             mb-6
             text-[#1F1F1F]
           "

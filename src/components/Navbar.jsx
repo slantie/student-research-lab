@@ -13,15 +13,15 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[72px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[88px]">
         <div className="flex items-center h-full relative">
 
           {/* LEFT — SRL Identity */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img
-              src="/SRL Logo.webp"
+              src="/SRL Logo.svg"
               alt="SRL"
-              className="h-10 sm:h-11 object-contain"
+              className="h-12 sm:h-14 object-contain"
             />
             <span className="hidden sm:block text-base sm:text-lg font-semibold text-white">
               Student Research Lab
@@ -77,9 +77,9 @@ const Navbar = () => {
 
           {/* RIGHT — LOGOS */}
           <div className="ml-auto hidden sm:flex items-center gap-3 sm:gap-4 shrink-0">
-            <img src="/MMPSRPC Logo.webp" alt="MMPSRPC" className="h-10 sm:h-11" />
-            <img src="/svkm.webp" alt="SVKM" className="h-10 sm:h-11" />
-            <img src="/KSV Logo.webp" alt="KSV" className="h-10 sm:h-11" />
+            <img src="/MMPSRPC Logo.webp" alt="MMPSRPC" className="h-12 sm:h-14" />
+            <img src="/svkm.webp" alt="SVKM" className="h-12 sm:h-14" />
+            <img src="/KSV Logo.webp" alt="KSV" className="h-12 sm:h-14" />
           </div>
 
           {/* MOBILE MENU TOGGLE */}

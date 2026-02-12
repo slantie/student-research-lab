@@ -1,3 +1,30 @@
+import { useRef, useEffect } from "react";
+import { animate, useInView } from "framer-motion";
+
+const Counter = ({ to, suffix = "", duration = 2 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    const node = ref.current;
+    const controls = animate(0, to, {
+      duration: duration,
+      ease: "easeOut",
+      onUpdate(value) {
+        if (node) {
+          node.textContent = Math.round(value) + suffix;
+        }
+      },
+    });
+
+    return () => controls.stop();
+  }, [to, suffix, duration, isInView]);
+
+  return <span ref={ref} className="tabular-nums">0{suffix}</span>;
+};
+
 const About = () => {
   return (
     <section
@@ -106,7 +133,7 @@ const About = () => {
                   className="
                     rounded-2xl
                     bg-gradient-to-br from-neutral-100 to-neutral-50
-                    p-7 sm:p-8 lg:p-9
+                    p-5 sm:p-8 lg:p-9
                     text-center
                     transition-colors duration-300
                     hover:bg-primary/5
@@ -114,7 +141,7 @@ const About = () => {
                 >
                   <p className="text-sm text-text-muted">Active Members</p>
                   <p className="text-4xl font-bold mt-1 text-text-primary">
-                    30+
+                    <Counter to={30} suffix="+" />
                   </p>
                 </div>
 
@@ -124,7 +151,7 @@ const About = () => {
                     sm:col-span-2 lg:col-span-2
                     rounded-2xl
                     bg-gradient-to-br from-neutral-100 to-neutral-50
-                    p-7 sm:p-8 lg:p-9
+                    p-5 sm:p-8 lg:p-9
                     text-center
                     transition-colors duration-300
                     hover:bg-primary/5
@@ -132,7 +159,7 @@ const About = () => {
                 >
                   <p className="text-sm text-text-muted">Research Domains</p>
                   <p className="text-4xl font-bold mt-1 text-text-primary">
-                    8+
+                    <Counter to={8} suffix="+" />
                   </p>
                 </div>
 
@@ -141,7 +168,7 @@ const About = () => {
                   className="
                     rounded-2xl
                     bg-gradient-to-br from-neutral-100 to-neutral-50
-                    p-7 sm:p-8 lg:p-9
+                    p-5 sm:p-8 lg:p-9
                     flex items-center justify-center
                     text-center
                     transition-colors duration-300
@@ -170,7 +197,7 @@ const About = () => {
                     "
                   >
                     <img
-                      src="/SRL Logo.webp"
+                      src="/SRL Logo.svg"
                       alt="SRL Logo"
                       className="
                         sm:h-32 sm:w-32
@@ -206,7 +233,7 @@ const About = () => {
                     sm:col-span-2 lg:col-span-2
                     rounded-2xl
                     bg-gradient-to-br from-neutral-100 to-neutral-50
-                    p-7 sm:p-8 lg:p-9
+                    p-5 sm:p-8 lg:p-9
                     text-center
                     transition-colors duration-300
                     hover:bg-primary/5
@@ -225,7 +252,7 @@ const About = () => {
                   className="
                     rounded-2xl
                     bg-gradient-to-br from-neutral-100 to-neutral-50
-                    p-7 sm:p-8 lg:p-9
+                    p-5 sm:p-8 lg:p-9
                     text-center
                     transition-colors duration-300
                     hover:bg-primary/5
@@ -233,7 +260,7 @@ const About = () => {
                 >
                   <p className="text-sm text-text-muted">Publications</p>
                   <p className="text-4xl font-bold mt-1 text-text-primary">
-                    2+
+                    <Counter to={2} suffix="+" />
                   </p>
                 </div>
               </div>
