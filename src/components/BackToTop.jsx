@@ -13,13 +13,32 @@ const BackToTop = () => {
 
       const scrolled = Math.min(scrollTop / docHeight, 1);
       setProgress(scrolled);
-      setVisible(scrollTop > 200);
+      
+      // Check if body is locked (modal open)
+      const isBodyLocked = window.getComputedStyle(document.body).overflow === "hidden" || document.body.style.overflow === "hidden";
+      
+      if (isBodyLocked) {
+        setVisible(false);
+      } else {
+        setVisible(scrollTop > 200);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    // Observer for body style changes (modal open/close)
+    const observer = new MutationObserver(() => {
+        handleScroll();
+    });
+    
+    observer.observe(document.body, { attributes: true, attributeFilter: ["style", "class"] });
+
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+        window.removeEventListener("scroll", handleScroll);
+        observer.disconnect();
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -46,6 +65,7 @@ const BackToTop = () => {
         justify-center
         transition-all
         duration-300
+        back-to-top-btn
         ${visible ? "opacity-100 scale-100" : "opacity-0 scale-75 pointer-events-none"}
       `}
     >

@@ -141,18 +141,6 @@ const timelineSteps = [
     description: "Collaborating with leading tech companies to provide mentorship and internships.",
     icon: <HandshakeIcon />,
   },
-  {
-    step: "2029",
-    title: "Innovation Hub Award",
-    description: "Striving for the 'Best Innovation Hub' award for contribution to student research.",
-    icon: <MedalIcon />,
-  },
-  {
-    step: "2030",
-    title: "Global Collaboration",
-    description: "Vision to initiate joint research programs with international universities.",
-    icon: <GlobeIcon />,
-  },
 ];
 
 const itemVariants = {
@@ -275,35 +263,37 @@ const TimelineItem = ({ item, index }) => {
 
 const Timeline = () => {
   return (
-    <section className="py-20 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* HEADER */}
-        <div className="text-center mb-24 max-w-3xl mx-auto">
-          <motion.h2 
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl font-bold text-teal-900 mb-6 font-display"
-          >
-            Our Journey
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-neutral-500 text-lg"
-          >
-            From humble beginnings to a hub of innovation, exploring the milestones that define our path forward.
-          </motion.p>
-        </div>
+    <section className="py-16 sm:py-20 overflow-hidden overflow-x-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="rounded-2xl bg-card px-6 sm:px-10 lg:px-14 py-8 sm:py-12 mx-4 sm:mx-6 lg:mx-8">
+          {/* HEADER */}
+          <div className="text-center mb-16 sm:mb-24 max-w-3xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl sm:text-5xl font-bold text-teal-900 mb-6 font-display"
+            >
+              Our Journey
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-neutral-500 text-lg"
+            >
+              From humble beginnings to a hub of innovation, exploring the milestones that define our path forward.
+            </motion.p>
+          </div>
 
-        {/* TIMELINE CONTAINER */}
-        <div className="relative">
-          <div className="flex flex-col">
-            {timelineSteps.map((item, index) => (
-              <TimelineItem key={index} item={item} index={index} />
-            ))}
+          {/* TIMELINE CONTAINER */}
+          <div className="relative">
+            <div className="flex flex-col">
+              {timelineSteps.map((item, index) => (
+                <TimelineItem key={index} item={item} index={index} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

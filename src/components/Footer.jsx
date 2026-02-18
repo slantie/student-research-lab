@@ -97,23 +97,15 @@ const Footer = () => {
               </h4>
 
               <p className="text-xs text-[#134E4A]/80 leading-relaxed mb-2">
-                M. M. Patel Students Research Project Cell
+                Student Research Lab (MMPSRPC)
                 <br />
-                KSV University, Gandhinagar, Gujarat, India
+                LDRP-ITR, Sector-15, Gandhinagar
               </p>
 
-              <div className="flex items-center gap-2 text-xs text-[#134E4A]/80 mb-1">
-                <span>079-232-44690</span>
+              <div className="flex flex-col gap-1 text-xs text-[#134E4A]/80 mb-2">
+                 <a href="mailto:srl@ldrp.ac.in" className="hover:underline">srl@ldrp.ac.in</a>
+                 <a href="mailto:info@mmpsrpc.in" className="hover:underline">info@mmpsrpc.in</a>
               </div>
-
-              <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=mmpsrc.ksv@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-[#134E4A]/80 hover:underline"
-              >
-                mmpsrc.ksv@gmail.com
-              </a>
             </div>
 
             {/* FOLLOW */}
@@ -129,6 +121,15 @@ const Footer = () => {
                 className="text-xs text-[#134E4A]/80 hover:underline"
               >
                 @mmpsrpc
+              </a>
+
+              <a
+                href="https://www.linkedin.com/school/kadi-sarva-vishwavidyalaya-gandihnagar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-[#134E4A]/80 hover:underline block mt-1"
+              >
+                @ksv
               </a>
             </div>
           </div>

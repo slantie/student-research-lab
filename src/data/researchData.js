@@ -12,6 +12,7 @@ export const researchWorks = [
         branch: "CE",
         email: "aayush@email.com",
         linkedin: "https://linkedin.com",
+        image: "/team/students/aayush-pandya.webp",
       },
       {
         name: "Mahi Parmar",
@@ -19,6 +20,7 @@ export const researchWorks = [
         branch: "CE",
         email: "mahi@email.com",
         linkedin: "https://linkedin.com",
+        image: "/team/students/mahi-parmar.webp",
       },
     ],
   },
@@ -35,6 +37,7 @@ export const researchWorks = [
         branch: "CE",
         email: "kandarp@email.com",
         linkedin: "https://linkedin.com",
+        image: "/team/students/kandarpbhai.webp",
       },
       {
         name: "Hemant Pande",
@@ -42,6 +45,7 @@ export const researchWorks = [
         branch: "CE",
         email: "hemant@email.com",
         linkedin: "https://linkedin.com",
+        image: "/team/students/hemantbhai.webp",
       },
     ],
   },
@@ -58,6 +62,7 @@ export const researchWorks = [
         branch: "CE",
         email: "hemant@email.com",
         linkedin: "https://linkedin.com",
+        image: "/team/students/hemantbhai.webp",
       },
       {
         name: "Pragati Varu",
@@ -65,6 +70,7 @@ export const researchWorks = [
         branch: "CE",
         email: "pragati@email.com",
         linkedin: "https://linkedin.com",
+        image: "/team/students/pragati-varu.webp",
       },
     ],
   },
@@ -81,6 +87,7 @@ export const researchWorks = [
         branch: "CE",
         email: "aayush@email.com",
         linkedin: "https://linkedin.com",
+        image: "/team/students/aayush-pandya.webp",
       },
       {
         name: "Kandarp Gajjar",
@@ -88,6 +95,7 @@ export const researchWorks = [
         branch: "CE",
         email: "kandarp@email.com",
         linkedin: "https://linkedin.com",
+        image: "/team/students/kandarpbhai.webp",
       },
     ],
   },

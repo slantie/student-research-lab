@@ -11,7 +11,6 @@ html {
 
 body {
   font-family: "Source Sans 3", system-ui, sans-serif;
-  background-color: #FAFAF9; /* matches theme.background */
   color: #1C1917;           /* matches theme.text.primary */
 }
 
@@ -80,4 +79,8 @@ h6 {
 
 .animate-vibrate {
   animation: vibrate 0.3s linear infinite;
+}
+
+body.popup-open .back-to-top-btn {
+  display: none !important;
 }

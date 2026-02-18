@@ -10,12 +10,15 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Timeline from "./components/Timeline";
+import Objectives from "./components/Objectives";
 import JoinLab from "./components/JoinLab";
 
 import ResearchAreas from "./components/ResearchAreas";
 import Gallery from "./components/Gallery";
 import Team from "./components/Team";
 import BackToTop from "./components/BackToTop";
+import OrganizationDetails from "./components/OrganizationDetails";
+import Contact from "./components/Contact";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -57,6 +60,7 @@ export default function App() {
                       <Hero />
                       <About />
                       <Timeline />
+                      <Objectives />
                       <JoinLab />
                     </>
                   }
@@ -64,6 +68,8 @@ export default function App() {
                 <Route path="/research" element={<ResearchAreas />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/team" element={<Team />} />
+                <Route path="/about/contact" element={<Contact />} />
+                <Route path="/about/:orgId" element={<OrganizationDetails />} />
               </Routes>
             </motion.div>
           </AnimatePresence>
