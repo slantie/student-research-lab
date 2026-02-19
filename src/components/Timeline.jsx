@@ -126,7 +126,7 @@ const timelineSteps = [
   {
     step: "Dec 2025",
     title: "Alumini Meet",
-    description: "An interactive gathering where alumni reconnect, share experiences, and inspire current members with their journeys and insights..",
+    description: "An interactive gathering where alumni reconnect, share experiences, and inspire current members with their journeys and insights.",
     icon: <MedalIcon />,
   },
   {
