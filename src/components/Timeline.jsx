@@ -118,27 +118,27 @@ const GlobeIcon = () => (
 
 const timelineSteps = [
   {
-    step: "Jan 2025",
-    title: "AI for Gender Empowerment",
-    description: "Launched research on designing inclusive, bias-aware intelligent systems.",
+    step: "Nov 2025",
+    title: "Marked The Beginning",
+    description: "The origin of SRL, where innovation and research journey began.",
     icon: <RocketIcon />,
   },
   {
-    step: "Mar 2025",
-    title: "Predictive Healthcare",
-    description: "Developed AI models for disease prediction & health risk analysis.",
+    step: "Dec 2025",
+    title: "Alumini Meet",
+    description: "An interactive gathering where alumni reconnect, share experiences, and inspire current members with their journeys and insights..",
     icon: <MedalIcon />,
   },
   {
-    step: "June 2025",
-    title: "Global Stage at NYC",
-    description: "Presented Sustainability & Ethical Innovation research at Cornell University.",
+    step: "Jan 2026",
+    title: "Organized ImpactThon and Innovaition Finalists",
+    description: "SRL students became finalists in an Innovaition and successfully organized ImpactThon promoting Research,Prototype,Impact.",
     icon: <GlobeIcon />,
   },
   {
-    step: "Sept 2025",
-    title: "National Finale",
-    description: "Selected for the National Poster Competition on AI Powered Research.",
+    step: "Feb 2026",
+    title: "Bridging Theory & Practice- A Research Talk",
+    description: "A research talk focused on connecting academic concepts with real-world applications through insights, discussions, and practical perspectives.",
     icon: <TrophyIcon />,
   },
 ];

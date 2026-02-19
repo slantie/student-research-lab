@@ -20,7 +20,7 @@ const Activities = () => {
 			year: 2026,
 			link: "https://www.linkedin.com/posts/mmpsrpc_ksv-svkm-mmpsrpc-activity-7417800043421843456-rV2a?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKU7EwBd6ANuk69I1ptc1jInauK8Qjbvhc",
 			brief: "At the Students Research Lab under the M. M. Patel Students Research Project Cell (KSV-MMPSRPC), Kadi Sarva Vishwavidyalaya, Gandhinagar, a research-oriented session was conducted focusing on algorithm optimization within a problem-driven research framework.Thesession emphasized analytical thinking, performance evaluation, and methodological refinement of algorithms. Students engaged in structured discussions, comparative analysis of algorithmic approaches, and collaborative exploration of optimization techniques aligned with research standards.The activity aimed to cultivate research aptitude by strengthening logical rigor, encouraging evidence-based reasoning, and promoting a systematic, experimentation-focused approach to computational problem solving.",
-			date: "3 January 2026",
+			date: "4 February 2026",
 		},
 		// Alumni Connect Session (2025) removed
 		{
@@ -49,7 +49,7 @@ const Activities = () => {
 			year: 2025,
 			link: "https://www.linkedin.com/posts/mmpsrpc_mmpsrpc-ksv-svkm-activity-7403658696884412416-BWwn?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKU7EwBd6ANuk69I1ptc1jInauK8Qjbvhc",
 			brief: "Inside this lab, students are not just creating projects; they are nurturing a research-driven approach where ideas develop with purpose, conversations bring clarity, and collaboration happens naturally as students learn from one another’s strengths.",
-			date: "2mo ago",
+			date: "November 2025",
 		},
 		// Robotics Workshop (2022) removed
 		{
@@ -59,7 +59,7 @@ const Activities = () => {
 			year: 2026,
 			link: "https://example.com/alumni-meet",
 			brief: "An event to connect current students with alumni for networking.",
-			// date removed
+			date: "28 December 2025",
 		},
 		{
 			title: "Weekly Exercise Debate Sessions",
@@ -68,7 +68,7 @@ const Activities = () => {
 			year: 2025,
 			link: "https://www.linkedin.com/posts/mmpsrpc_mmpsrpc-ksv-studentsresearchlab-activity-7405172370459668481-6zQI?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKU7EwBd6ANuk69I1ptc1jInauK8Qjbvhc",
 			brief: "Students Research Lab shows students steadily moving beyond routine academic thinking. Weekly topics and spontaneous exercises encourage sharper reasoning, and deeper engagement with ideas, all of which strengthen their research mindset.",
-			date: "2mo ago",
+			date: "December 2025",
 		},
 	];
 
