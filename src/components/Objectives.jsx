@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 // Custom SVG Icons for Objectives
 const Icon360 = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 sm:w-10 sm:h-10">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 sm:w-10 sm:h-10">
         <circle cx="12" cy="12" r="10" />
         <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
         <path d="M2 12h20" />
@@ -11,7 +11,7 @@ const Icon360 = () => (
 );
 
 const IconTeam = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 sm:w-10 sm:h-10">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 sm:w-10 sm:h-10">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
         <circle cx="9" cy="7" r="4" />
         <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -20,7 +20,7 @@ const IconTeam = () => (
 );
 
 const IconHandsOn = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 sm:w-10 sm:h-10">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 sm:w-10 sm:h-10">
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a2 2 0 0 1 2.83 0l.3.3a2 2 0 0 1 0 2.83l-8.1 8.1a2 2 0 0 1-2.83 0l-1.6-1.6a2 2 0 0 1 0-2.83l8.1-8.1a2 2 0 0 1 2.83 0l.3.3a2 2 0 0 1 0 2.83l-3.77 3.77" />
         <path d="m14.7 6.3-3.6 3.6" />
         <circle cx="5" cy="19" r="2" />
@@ -30,7 +30,7 @@ const IconHandsOn = () => (
 );
 
 const IconResearch = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 sm:w-10 sm:h-10">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 sm:w-10 sm:h-10">
         <circle cx="11" cy="11" r="8" />
         <line x1="21" y1="21" x2="16.65" y2="16.65" />
         <path d="M11 7v8" />
@@ -39,21 +39,21 @@ const IconResearch = () => (
 );
 
 const IconTheory = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 sm:w-10 sm:h-10">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 sm:w-10 sm:h-10">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
     </svg>
 );
 
 const IconMentors = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 sm:w-10 sm:h-10">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 sm:w-10 sm:h-10">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
         <circle cx="12" cy="7" r="4" />
     </svg>
 );
 
 const IconInnovation = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 sm:w-10 sm:h-10">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 sm:w-10 sm:h-10">
         <path d="M12 2v4" />
         <path d="m4.93 4.93 2.83 2.83" />
         <path d="M2 12h4" />
@@ -66,14 +66,14 @@ const IconInnovation = () => (
 );
 
 const IconSkills = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 sm:w-10 sm:h-10">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 sm:w-10 sm:h-10">
         <path d="m12 14 4-4" />
         <path d="M3.34 19a10 10 0 1 1 17.32 0" />
     </svg>
 );
 
 const IconGlobal = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 sm:w-10 sm:h-10">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 sm:w-10 sm:h-10">
         <circle cx="12" cy="12" r="10" />
         <path d="M22 12A10 10 0 1 1 2 12" />
         <path d="M2 12h20" />
@@ -82,7 +82,7 @@ const IconGlobal = () => (
 );
 
 const IconReady = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 sm:w-10 sm:h-10">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 sm:w-10 sm:h-10">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
     </svg>
 );
@@ -93,171 +93,139 @@ const objectives = [
         icon: <Icon360 />,
         title: "360° Development of Students",
         description: "To cultivate well-rounded, future-ready achievers equipped to excel beyond boundaries.",
-        bgColor: "bg-teal-50",
-        numberColor: "bg-teal-100",
-        textColor: "text-teal-900",
-        borderColor: "border-teal-300"
+        color: "teal"
     },
     {
         id: 2,
         icon: <IconTeam />,
-        title: "Team-Based Learning & Collaborative Activities",
-        description: "To promote teamwork through group research projects, innovation activities, and collaborative problem-solving, building coordination and leadership skills.",
-        bgColor: "bg-cyan-50",
-        numberColor: "bg-cyan-100",
-        textColor: "text-cyan-900",
-        borderColor: "border-cyan-300"
+        title: "Team-Based Learning",
+        description: "To promote teamwork through group research projects, innovation activities, and collaborative problem-solving.",
+        color: "cyan"
     },
     {
         id: 3,
         icon: <IconHandsOn />,
-        title: "Hands-on Experience & Skill-Based Learning",
-        description: "To encourage practical experimentation and hands-on technical sessions, ensuring students develop industry-relevant expertise.",
-        bgColor: "bg-sky-50",
-        numberColor: "bg-sky-100",
-        textColor: "text-sky-900",
-        borderColor: "border-sky-300"
+        title: "Hands-on Experience",
+        description: "To encourage practical experimentation and hands-on technical sessions, ensuring students develop expertise.",
+        color: "sky"
     },
     {
         id: 4,
         icon: <IconResearch />,
         title: "Interdisciplinary Research",
-        description: "Addressing emerging technologies and societal challenges through cross-domain collaboration and innovative methodologies.",
-        bgColor: "bg-blue-50",
-        numberColor: "bg-blue-100",
-        textColor: "text-blue-900",
-        borderColor: "border-blue-300"
+        description: "Addressing emerging technologies and societal challenges through cross-domain collaboration.",
+        color: "blue"
     },
     {
         id: 5,
         icon: <IconTheory />,
         title: "Bridging Theory & Practice",
-        description: "Connecting academic learning with real-world engineering through continuous technical engagement and mentorship.",
-        bgColor: "bg-indigo-50",
-        numberColor: "bg-indigo-100",
-        textColor: "text-indigo-900",
-        borderColor: "border-indigo-300"
+        description: "Connecting academic learning with real-world engineering through continuous technical engagement.",
+        color: "indigo"
     },
     {
         id: 6,
         icon: <IconMentors />,
         title: "Guided Mentorship",
         description: "Fostering professional growth and character building under the expert guidance of dedicated faculty mentors.",
-        bgColor: "bg-purple-50",
-        numberColor: "bg-purple-100",
-        textColor: "text-purple-900",
-        borderColor: "border-purple-300"
+        color: "purple"
     },
     {
         id: 7,
         icon: <IconInnovation />,
         title: "Applied Innovation",
         description: "Focusing on solution-oriented research and technological advancements that address practical industrial needs.",
-        bgColor: "bg-fuchsia-50",
-        numberColor: "bg-fuchsia-100",
-        textColor: "text-fuchsia-900",
-        borderColor: "border-fuchsia-300"
+        color: "fuchsia"
     },
     {
         id: 8,
         icon: <IconSkills />,
         title: "Professional Excellence",
         description: "Developing a mindset of quality, ethics, and competitive technical standards among all lab members.",
-        bgColor: "bg-pink-50",
-        numberColor: "bg-pink-100",
-        textColor: "text-pink-900",
-        borderColor: "border-pink-300"
+        color: "pink"
     },
     {
         id: 9,
         icon: <IconGlobal />,
         title: "Global Recognition",
         description: "Striving for excellence that places our research and students on the international stage.",
-        bgColor: "bg-rose-50",
-        numberColor: "bg-rose-100",
-        textColor: "text-rose-900",
-        borderColor: "border-rose-300"
+        color: "rose"
     },
     {
         id: 10,
         icon: <IconReady />,
         title: "Industry Readiness",
-        description: "Equipping students with the skills and confidence required to transition seamlessly into high-impact professional roles.",
-        bgColor: "bg-orange-50",
-        numberColor: "bg-orange-100",
-        textColor: "text-orange-900",
-        borderColor: "border-orange-300"
+        description: "Equipping students with the skills and confidence required to transition seamlessly into high-impact roles.",
+        color: "orange"
     }
 ];
 
-const ObjectiveItem = ({ objective, index }) => {
-    const [isMobile, setIsMobile] = useState(false);
+const getColorClasses = (color) => {
+    // A simplified map to avoid dynamic class purge issues if not safely listed,
+    // though Tailwind JIT usually handles dynamic template literals if values are safe.
+    // For safety, defining explicit maps or standardizing on neutral/primary is often cleaner,
+    // but preserving the rainbow effect as requested by original design.
+    const colors = {
+        teal: { bg: "bg-teal-50", border: "border-teal-200", text: "text-teal-800", icon: "text-teal-600", hover: "group-hover:border-teal-300" },
+        cyan: { bg: "bg-cyan-50", border: "border-cyan-200", text: "text-cyan-800", icon: "text-cyan-600", hover: "group-hover:border-cyan-300" },
+        sky: { bg: "bg-sky-50", border: "border-sky-200", text: "text-sky-800", icon: "text-sky-600", hover: "group-hover:border-sky-300" },
+        blue: { bg: "bg-blue-50", border: "border-blue-200", text: "text-blue-800", icon: "text-blue-600", hover: "group-hover:border-blue-300" },
+        indigo: { bg: "bg-indigo-50", border: "border-indigo-200", text: "text-indigo-800", icon: "text-indigo-600", hover: "group-hover:border-indigo-300" },
+        purple: { bg: "bg-purple-50", border: "border-purple-200", text: "text-purple-800", icon: "text-purple-600", hover: "group-hover:border-purple-300" },
+        fuchsia: { bg: "bg-fuchsia-50", border: "border-fuchsia-200", text: "text-fuchsia-800", icon: "text-fuchsia-600", hover: "group-hover:border-fuchsia-300" },
+        pink: { bg: "bg-pink-50", border: "border-pink-200", text: "text-pink-800", icon: "text-pink-600", hover: "group-hover:border-pink-300" },
+        rose: { bg: "bg-rose-50", border: "border-rose-200", text: "text-rose-800", icon: "text-rose-600", hover: "group-hover:border-rose-300" },
+        orange: { bg: "bg-orange-50", border: "border-orange-200", text: "text-orange-800", icon: "text-orange-600", hover: "group-hover:border-orange-300" },
+    };
+    return colors[color] || colors.teal;
+};
 
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 640);
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
-
+const ObjectiveCard = ({ objective, index }) => {
+    const theme = getColorClasses(objective.color);
+    
     return (
         <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="flex items-center w-full max-w-3xl mx-auto mb-4 sm:mb-6 group"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            className={`
+                group
+                relative
+                p-6 sm:p-8
+                rounded-2xl
+                bg-white
+                border border-transparent
+                ${theme.border}
+                ${theme.bg}
+                hover:shadow-lg
+                hover:-translate-y-1
+                transition-all duration-300
+                flex flex-col sm:flex-row items-start gap-4 sm:gap-6
+            `}
         >
-            <div className={`relative flex items-center w-full ${isMobile ? 'gap-4' : ''}`}>
-                {/* SVG Icon Circle */}
-                <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                        className={`
-                            z-30 flex items-center justify-center 
-                            w-20 h-20 sm:w-24 sm:h-24 
-                            rounded-full ${objective.numberColor} 
-                            border-2 sm:border-4 border-white shadow-lg sm:shadow-xl
-                            ${objective.textColor}
-                            shrink-0
-                        `}
-                >
-                    <div className="flex items-center justify-center p-2">
-                        {objective.icon}
-                    </div>
-                </motion.div>
+            {/* Number Watermark */}
+            <div className={`absolute top-4 right-6 text-6xl font-black opacity-[0.07] ${theme.text} pointer-events-none select-none`}>
+                {objective.id}
+            </div>
 
-                {/* Content Box */}
-                <div className={`relative flex-1 ${isMobile ? '' : '-ml-12'}`}>
-                    <motion.div
-                        whileHover={{ x: isMobile ? 0 : 10 }}
-                        className={`
-                            relative z-10 w-full ${objective.bgColor} 
-                            border-2 ${objective.borderColor}
-                            flex flex-col justify-center
-                            group-hover:shadow-md h-auto
-                            ${isMobile ? 'px-4 py-3 rounded-xl' : 'pl-16 pr-14 py-3 min-h-[6rem]'}
-                        `}
-                        style={{
-                            clipPath: isMobile 
-                                ? 'none' 
-                                : 'polygon(0% 0%, calc(100% - 25px) 0%, 100% 50%, calc(100% - 25px) 100%, 0% 100%)'
-                        }}
-                    >
-                        <h3 className={`text-base sm:text-xl font-bold ${objective.textColor} mb-1 sm:mb-2`}>
-                            {objective.title}
-                        </h3>
-                        <p className="text-neutral-700 text-xs sm:text-sm leading-snug sm:leading-relaxed max-w-3xl">
-                            {objective.description}
-                        </p>
-                    </motion.div>
+            {/* Icon */}
+            <div className={`
+                p-3 rounded-xl bg-white shadow-sm border ${theme.border} 
+                ${theme.icon} shrink-0
+                group-hover:scale-110 transition-transform duration-300
+            `}>
+                {objective.icon}
+            </div>
 
-                    {/* Visual Number Indicator in Background */}
-                    <div className={`absolute top-1/2 -translate-y-1/2 pointer-events-none opacity-5 ${isMobile ? 'right-2' : 'right-20'}`}>
-                        <span className={`text-5xl sm:text-7xl font-black ${objective.textColor}`}>
-                            {objective.id}
-                        </span>
-                    </div>
-                </div>
+            {/* Content */}
+            <div className="relative z-10">
+                <h3 className={`text-lg sm:text-xl font-bold mb-2 ${theme.text}`}>
+                    {objective.title}
+                </h3>
+                <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
+                    {objective.description}
+                </p>
             </div>
         </motion.div>
     );
@@ -265,37 +233,27 @@ const ObjectiveItem = ({ objective, index }) => {
 
 const Objectives = () => {
     return (
-        <section id="objectives" className="py-10 sm:py-16 overflow-hidden overflow-x-hidden">
-            <div className="max-w-7xl mx-auto">
-                <div className="rounded-2xl bg-card px-6 sm:px-10 lg:px-14 py-8 sm:py-12 mx-4 sm:mx-6 lg:mx-8">
-                    <div className="text-center mb-12">
-                        <motion.h2
-                            initial={{ opacity: 0, y: -20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-2xl sm:text-4xl font-bold text-teal-950 mb-6 font-display tracking-tight"
-                        >
-                            Objectives of SRL
-                        </motion.h2>
-
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="text-neutral-500 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
-                        >
-                            Pioneering excellence through a structured mission
-                            focused on innovation, growth, and student empowerment.
-                        </motion.p>
-                    </div>
-
-                    <div className="flex flex-col items-center gap-2">
-                        {objectives.map((obj, index) => (
-                            <ObjectiveItem key={obj.id} objective={obj} index={index} />
-                        ))}
-                    </div>
+        <section id="objectives" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1400px] mx-auto">
+                
+                {/* Section Header */}
+                <div className="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-6 tracking-tight">
+                        Objectives of SRL
+                    </h2>
+                    <p className="text-lg sm:text-xl text-neutral-600 leading-relaxed">
+                        Pioneering excellence through a structured mission focused on innovation, 
+                        growth, and proper student empowerment in research.
+                    </p>
                 </div>
+
+                {/* 2-Column Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                    {objectives.map((obj, index) => (
+                        <ObjectiveCard key={obj.id} objective={obj} index={index} />
+                    ))}
+                </div>
+
             </div>
         </section>
     );

@@ -1,0 +1,80 @@
+/* Minimal admin CSS — overrides and animations */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Force light background for admin — override global body/html styles */
+.admin-root {
+    background-color: #F5F3F0 !important;
+    color: #1C1917 !important;
+    min-height: 100vh;
+}
+
+.admin-root * {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.admin-root h1,
+.admin-root h2,
+.admin-root h3,
+.admin-root h4,
+.admin-root h5,
+.admin-root h6 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.anim-fade {
+    animation: fadeIn 0.2s ease;
+}
+
+.anim-slide {
+    animation: slideUp 0.25s ease;
+}
+
+/* Scrollbar */
+.a-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.a-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.a-scroll::-webkit-scrollbar-thumb {
+    background: #D6D3D1;
+    border-radius: 3px;
+}
+
+.a-scroll::-webkit-scrollbar-thumb:hover {
+    background: #A8A29E;
+}
+
+/* Attendance cell toggle */
+.att-cell {
+    transition: transform 0.15s ease;
+}
+
+.att-cell:hover {
+    transform: scale(1.15);
+}

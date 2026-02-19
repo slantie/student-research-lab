@@ -1,10 +1,76 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { researchWorks } from "../data/researchData";
+import { researchWorks as localResearchWorks } from "../data/researchData";
+import { fetchResearchWorks } from "../lib/dataService";
 
 const ResearchAreas = () => {
   const [activeResearch, setActiveResearch] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [researchWorks, setResearchWorks] = useState(localResearchWorks);
+
+  /* ---- Fetch from Supabase ---- */
+  useEffect(() => {
+    async function loadResearch() {
+      try {
+        const data = await fetchResearchWorks();
+        if (!data || data.length === 0) return;
+
+        const mapped = data.map((w) => {
+          // Map work-level members (not attached to any paper)
+          const workMembers = (w.research_work_members || [])
+            .filter((m) => !m.research_paper_id)
+            .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
+            .map((m) => ({
+              name: m.researcher?.name || '',
+              role: m.role || 'Member',
+              email: m.researcher?.email || '',
+              linkedin: m.researcher?.linkedin || '',
+              image: m.researcher?.image_url || '',
+              branch: m.researcher?.department || '',
+              semester: m.researcher?.semester || '',
+              college: m.researcher?.institute || '',
+            }));
+
+          // Map papers
+          const papers = (w.research_papers || [])
+            .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
+            .map((p) => ({
+              title: p.title,
+              description: p.description || '',
+              members: (p.research_work_members || [])
+                .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
+                .map((m) => ({
+                  name: m.researcher?.name || '',
+                  role: m.role || 'Member',
+                  email: m.researcher?.email || '',
+                  linkedin: m.researcher?.linkedin || '',
+                  image: m.researcher?.image_url || '',
+                  branch: m.researcher?.department || '',
+                  semester: m.researcher?.semester || '',
+                  college: m.researcher?.institute || '',
+                })),
+            }));
+
+          return {
+            title: w.title,
+            status: w.status || 'Ongoing',
+            short: w.short_description || '',
+            description: w.description || '',
+            guidedBy: w.guided_by || '',
+            guideRole: w.guide_role || '',
+            image: w.image_url || '/SRL Logo.webp',
+            members: workMembers,
+            papers: papers.length > 0 ? papers : undefined,
+          };
+        });
+
+        setResearchWorks(mapped);
+      } catch (err) {
+        console.warn('Research: using local fallback', err.message);
+      }
+    }
+    loadResearch();
+  }, []);
 
   // Reset index when modal opens
   useEffect(() => {
@@ -49,11 +115,12 @@ const ResearchAreas = () => {
     <section
       id="research"
       className="
-        pt-20 sm:pt-24
-        pb-24 sm:pb-32
+        pt-6
+        pb-16
         px-4 sm:px-6 lg:px-8
         relative
         overflow-hidden
+        min-h-screen
       "
     >
       {/* Background Decor */}
@@ -62,18 +129,18 @@ const ResearchAreas = () => {
          <div className="absolute bottom-[10%] right-[5%] w-[30rem] h-[30rem] bg-accent/5 rounded-full blur-3xl opacity-50 mix-blend-multiply"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16 sm:mb-20 text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-black mb-6 text-neutral-900 tracking-tight leading-tight">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="mb-10 text-center max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-text-primary">
             Research Frontiers
-          </h2>
-          <p className="text-lg sm:text-xl text-neutral-600 font-light leading-relaxed">
+          </h1>
+          <p className="text-text-muted">
             Explorations at the intersection of technology and theory.
             Our students are pushing boundaries in these key areas.
           </p>
         </div>
 
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
+        <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
           {researchWorks.map((work) => {
             const isOngoing = work.status === "Ongoing";
 
@@ -83,26 +150,26 @@ const ResearchAreas = () => {
                 onClick={() => openModal(work)}
                 className="
                   group relative cursor-pointer
-                  rounded-3xl
-                  p-8 sm:p-10
+                  rounded-2xl
+                  p-6 sm:p-8
                   bg-white
                   border border-neutral-100
-                  shadow-sm hover:shadow-2xl
-                  transition-all duration-500 ease-out
-                  hover:-translate-y-2
+                  shadow-sm hover:shadow-xl
+                  transition-all duration-300 ease-out
+                  hover:-translate-y-1
                   overflow-hidden
                 "
               >
                 {/* DECORATIVE GRADIENT BLOB */}
                 <div className="
-                   absolute -right-20 -top-20 w-64 h-64 
+                   absolute -right-16 -top-16 w-48 h-48 
                    bg-gradient-to-br from-primary/5 to-transparent 
                    rounded-full blur-3xl 
-                   group-hover:scale-150 transition-transform duration-700 ease-in-out
+                   group-hover:scale-150 transition-transform duration-500 ease-in-out
                 "></div>
 
                 {/* STATUS PILL */}
-                <div className="relative mb-8">
+                <div className="relative mb-5">
                   {isOngoing ? (
                     <span className="
                       inline-flex items-center gap-2.5
@@ -132,16 +199,16 @@ const ResearchAreas = () => {
                   )}
                 </div>
 
-                <h3 className="relative text-2xl sm:text-3xl font-black text-neutral-900 mb-4 group-hover:text-primary transition-colors duration-300">
+                <h3 className="relative text-xl sm:text-2xl font-bold text-neutral-900 mb-3 group-hover:text-primary transition-colors duration-300">
                   {work.title}
                 </h3>
 
-                <p className="relative text-base sm:text-lg text-neutral-600 leading-relaxed font-light">
+                <p className="relative text-sm text-neutral-600 leading-relaxed line-clamp-3">
                   {work.short}
                 </p>
                 
-                <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-primary/80 group-hover:text-primary transition-colors">
-                   <span>Explore Research</span>
+                <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-primary/80 group-hover:text-primary transition-colors">
+                   <span>View Details</span>
                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                    </svg>

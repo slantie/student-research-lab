@@ -27,7 +27,7 @@ const Footer = () => {
 
       {/* FOOTER BODY */}
       <div className="bg-[#cfded8] text-[#134E4A] relative z-10">
-        <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="max-w-[1400px] mx-auto px-6 py-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
 
             {/* SRL BRAND */}

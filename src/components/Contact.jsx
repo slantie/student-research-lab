@@ -8,7 +8,7 @@ const Contact = () => {
       {/* HEADER SECTION */}
       <div className="bg-primary pt-20 pb-20 lg:pb-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 relative z-10 text-center">
             <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -29,7 +29,7 @@ const Contact = () => {
       </div>
 
       {/* MAIN CONTENT GRID */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 -mt-10 lg:-mt-20 relative z-20">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 -mt-10 lg:-mt-20 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             
             {/* LEFT COLUMN: CONTACT DETAILS */}

@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[88px]">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 h-[88px]">
         <div className="flex items-center h-full relative">
           {/* LEFT — SRL Identity */}
           <Link to="/" className="flex items-center gap-2 shrink-0">

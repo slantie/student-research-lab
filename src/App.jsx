@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 import Navbar from "./components/Navbar";
@@ -20,14 +20,47 @@ import BackToTop from "./components/BackToTop";
 import OrganizationDetails from "./components/OrganizationDetails";
 import Contact from "./components/Contact";
 
+// Admin (lazy loaded)
+import AdminApp from "./admin/AdminApp";
+import AdminDashboard from "./admin/pages/AdminDashboard";
+import ResearchersPage from "./admin/pages/ResearchersPage";
+import ResearchPage from "./admin/pages/ResearchPage";
+import ActivitiesPage from "./admin/pages/ActivitiesPage";
+import AttendancePage from "./admin/pages/AttendancePage";
+import ScoresPage from "./admin/pages/ScoresPage";
+
 export default function App() {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
+  // Skip preloader for admin routes
+  const isAdmin = location.pathname.startsWith('/admin');
+
   useEffect(() => {
+    if (isAdmin) {
+      setLoading(false);
+      return;
+    }
     const timer = setTimeout(() => setLoading(false), 1800);
     return () => clearTimeout(timer);
-  }, []);
+  }, [isAdmin]);
+
+  // Admin routes — completely separate layout
+  if (isAdmin) {
+    return (
+      <Routes>
+        <Route path="/admin" element={<AdminApp />}>
+          <Route index element={<Navigate to="/admin/dashboard" replace />} />
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="researchers" element={<ResearchersPage />} />
+          <Route path="research" element={<ResearchPage />} />
+          <Route path="activities" element={<ActivitiesPage />} />
+          <Route path="attendance" element={<AttendancePage />} />
+          <Route path="scores" element={<ScoresPage />} />
+        </Route>
+      </Routes>
+    );
+  }
 
   if (loading) {
     return <Preloader />;

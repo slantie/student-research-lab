@@ -20,24 +20,6 @@ const RocketIcon = () => (
   </svg>
 );
 
-const BanknoteIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <rect width="20" height="12" x="2" y="6" rx="2" />
-    <circle cx="12" cy="12" r="2" />
-    <path d="M6 12h.01M18 12h.01" />
-  </svg>
-);
-
 const TrophyIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -56,24 +38,6 @@ const TrophyIcon = () => (
     <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
     <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
     <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-  </svg>
-);
-
-const HandshakeIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="m11 17 2 2a1 1 0 1 0 3-3" />
-    <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 2 0l.47-.28c2.63-1.57 2.3-4.34 2-5a2.11 2.11 0 0 0-2.93-.25l-2.7 2.7" />
-    <path d="M12 15l-4 4a3 3 0 0 1-3-3l1-1" />
   </svg>
 );
 
@@ -131,13 +95,13 @@ const timelineSteps = [
   },
   {
     step: "Jan 2026",
-    title: "Organized ImpactThon and InnovAItion Finalists",
+    title: "ImpactThon & InnovAItion Finalists",
     description: "SRL students became finalists in an InnovAItion hackathon and successfully organized ImpactThon promoting Research | Prototype | Impact.",
     icon: <GlobeIcon />,
   },
   {
     step: "Feb 2026",
-    title: "Bridging Theory & Practice- A Research Talk",
+    title: "Bridging Theory & Practice",
     description: "A research talk focused on connecting academic concepts with real-world applications through insights, discussions, and practical perspectives.",
     icon: <TrophyIcon />,
   },
@@ -149,7 +113,7 @@ const itemVariants = {
 };
 
 const slideInLeft = {
-  hidden: { opacity: 0, x: -50 },
+  hidden: { opacity: 0, x: -30 },
   visible: { 
     opacity: 1, 
     x: 0, 
@@ -158,7 +122,7 @@ const slideInLeft = {
 };
 
 const slideInRight = {
-  hidden: { opacity: 0, x: 50 },
+  hidden: { opacity: 0, x: 30 },
   visible: { 
     opacity: 1, 
     x: 0, 
@@ -176,9 +140,7 @@ const popIn = {
 };
 
 const TimelineItem = ({ item, index }) => {
-  // Step 1 (Index 0): Content Left, Icon Center, Number Right.
-  // Step 2 (Index 1): Number Left, Icon Center, Content Right.
-  const isEvenStep = (index + 1) % 2 === 0; // False for Index 0 (Step 1)
+  const isEvenStep = (index + 1) % 2 === 0;
 
   return (
     <motion.div
@@ -191,20 +153,19 @@ const TimelineItem = ({ item, index }) => {
       {/* LEFT SIDE (Desktop) */}
       <div className={`w-full sm:w-[45%] flex ${isEvenStep ? 'justify-end' : 'justify-end'}`}>
         {isEvenStep ? (
-          // EVEN STEP (e.g., 2026): Show NUMBER on Left -> Slide in from Left
+          // EVEN STEP (e.g., 2026): Show NUMBER on Left
           <motion.div variants={slideInLeft} className="text-center sm:text-right pr-0 sm:pr-8 hidden sm:block">
-            <span className="text-6xl sm:text-8xl font-bold text-teal-100/80 tracking-tighter">
+            <span className="text-5xl sm:text-8xl font-black text-teal-500 tracking-tighter select-none">
               {item.step}
             </span>
           </motion.div>
         ) : (
-          // ODD STEP (e.g., 2025): Show CONTENT on Left -> Slide in from Left
+          // ODD STEP (e.g., 2025): Show CONTENT on Left
           <motion.div 
             variants={slideInLeft}
-            whileHover={{ scale: 1.05, x: -10 }}
-            className="text-center sm:text-right pr-0 sm:pr-8 cursor-pointer"
+            className="text-center sm:text-right pr-0 sm:pr-8 group cursor-pointer"
           >
-            <h3 className="text-xl sm:text-2xl font-bold text-teal-800 mb-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-neutral-800 mb-2 group-hover:text-primary transition-colors">
               {item.title}
             </h3>
             <p className="text-neutral-500 text-sm sm:text-base leading-relaxed">
@@ -218,25 +179,26 @@ const TimelineItem = ({ item, index }) => {
       <div className="relative z-10 flex items-center justify-center w-full sm:w-[10%] my-4 sm:my-0">
         <motion.div 
           variants={popIn}
-          whileHover={{ scale: 1.2, rotate: 15 }}
-          className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-teal-500 shadow-xl flex items-center justify-center text-white ring-8 ring-white cursor-pointer"
+          whileHover={{ scale: 1.15, rotate: 10 }}
+          className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border-4 border-primary shadow-xl flex items-center justify-center text-primary z-20"
         >
-           <div className="scale-125 sm:scale-150">
+           <div className="scale-110 sm:scale-125">
              {item.icon}
            </div>
         </motion.div>
+        {/* Connector Line */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0.5 h-[150%] sm:h-[180%] bg-neutral-100 -z-10" />
       </div>
 
       {/* RIGHT SIDE (Desktop) */}
       <div className={`w-full sm:w-[45%] flex ${isEvenStep ? 'justify-start' : 'justify-start'}`}>
         {isEvenStep ? (
-          // EVEN STEP (e.g., 2026): Show CONTENT on Right -> Slide in from Right
+          // EVEN STEP (e.g., 2026): Show CONTENT on Right
           <motion.div 
             variants={slideInRight} 
-            whileHover={{ scale: 1.05, x: 10 }}
-            className="text-center sm:text-left pl-0 sm:pl-8 cursor-pointer"
+            className="text-center sm:text-left pl-0 sm:pl-8 group cursor-pointer"
           >
-            <h3 className="text-xl sm:text-2xl font-bold text-teal-800 mb-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-neutral-800 mb-2 group-hover:text-primary transition-colors">
               {item.title}
             </h3>
             <p className="text-neutral-500 text-sm sm:text-base leading-relaxed max-w-md">
@@ -244,9 +206,9 @@ const TimelineItem = ({ item, index }) => {
             </p>
           </motion.div>
         ) : (
-          // ODD STEP (e.g., 2025): Show NUMBER on Right -> Slide in from Right
+          // ODD STEP (e.g., 2025): Show NUMBER on Right
           <motion.div variants={slideInRight} className="text-center sm:text-left pl-0 sm:pl-8 hidden sm:block">
-            <span className="text-6xl sm:text-8xl font-bold text-teal-100/80 tracking-tighter">
+            <span className="text-5xl sm:text-8xl font-black text-teal-500 tracking-tighter select-none">
               {item.step}
             </span>
           </motion.div>
@@ -254,48 +216,48 @@ const TimelineItem = ({ item, index }) => {
       </div>
       
       {/* Mobile Number Display (Only visible on small screens) */}
-       <motion.div variants={slideInLeft} className="sm:hidden text-6xl font-bold text-teal-100/80 mb-2">
-          {item.step}
-       </motion.div>
+      <motion.div variants={slideInLeft} className="sm:hidden text-4xl font-black text-primary/20 mb-2">
+         {item.step}
+      </motion.div>
     </motion.div>
   );
 };
 
 const Timeline = () => {
   return (
-    <section className="py-16 sm:py-20 overflow-hidden overflow-x-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="rounded-2xl bg-card px-6 sm:px-10 lg:px-14 py-8 sm:py-12 mx-4 sm:mx-6 lg:mx-8">
-          {/* HEADER */}
-          <div className="text-center mb-16 sm:mb-24 max-w-3xl mx-auto">
-            <motion.h2 
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl sm:text-5xl font-bold text-teal-900 mb-6 font-display"
-            >
-              Our Journey
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-neutral-500 text-lg"
-            >
-              From humble beginnings to a hub of innovation, exploring the milestones that define our path forward.
-            </motion.p>
-          </div>
+    <section className="py-16 sm:py-24 overflow-hidden overflow-x-hidden">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* HEADER */}
+        <div className="text-center mb-16 sm:mb-24 max-w-3xl mx-auto">
+          <motion.h2 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl font-bold text-text-primary mb-3 text-neutral-900"
+          >
+            Our Journey
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-neutral-500 text-lg sm:text-xl"
+          >
+            From humble beginnings to a hub of innovation, exploring the milestones that define our path forward.
+          </motion.p>
+        </div>
 
-          {/* TIMELINE CONTAINER */}
-          <div className="relative">
-            <div className="flex flex-col">
-              {timelineSteps.map((item, index) => (
-                <TimelineItem key={index} item={item} index={index} />
-              ))}
-            </div>
+        {/* TIMELINE CONTAINER */}
+        <div className="relative">
+          <div className="flex flex-col">
+            {timelineSteps.map((item, index) => (
+              <TimelineItem key={index} item={item} index={index} />
+            ))}
           </div>
         </div>
+
       </div>
     </section>
   );

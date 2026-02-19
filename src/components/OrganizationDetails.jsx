@@ -11,7 +11,7 @@ const OrganizationDetails = () => {
   }
 
   return (
-    <div className="pt-[88px] min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       {/* HERO SECTION */}
       <section className="relative py-20 px-6 sm:px-10 lg:px-14 overflow-hidden bg-primary/5">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
@@ -37,9 +37,9 @@ const OrganizationDetails = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg sm:text-xl text-text-muted font-medium max-w-2xl"
+            className="text-lg sm:text-xl text-text-muted font-medium max-w-2xl italic"
           >
-            {data.subtitle}
+            "{data.subtitle}"
           </motion.p>
         </div>
 
@@ -52,19 +52,38 @@ const OrganizationDetails = () => {
 
       {/* CONTENT SECTION */}
       <section className="py-16 px-6 sm:px-10 lg:px-14">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
+
+          {/* DESCRIPTION */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="prose prose-lg max-w-none text-text-primary"
+            className="prose prose-lg max-w-none text-text-primary mb-12"
           >
             {data.description.map((paragraph, index) => (
-              <p key={index} className="mb-6 leading-relaxed text-text-muted">
+              <p key={index} className="mb-6 leading-relaxed text-text-muted text-lg">
                 {paragraph}
               </p>
             ))}
           </motion.div>
+
+          {/* CAMPUS IMAGE */}
+          {data.campusImage && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-16 rounded-2xl overflow-hidden shadow-lg border border-border"
+            >
+              <img
+                src={data.campusImage}
+                alt={`${data.title} Campus`}
+                className="w-full h-[300px] sm:h-[400px] object-cover"
+              />
+            </motion.div>
+          )}
 
           {/* STATS */}
           {data.stats && (
@@ -73,7 +92,7 @@ const OrganizationDetails = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
             >
               {data.stats.map((stat, index) => (
                 <div key={index} className="bg-primary/5 p-6 rounded-2xl text-center border border-primary/10">
@@ -84,9 +103,109 @@ const OrganizationDetails = () => {
             </motion.div>
           )}
 
+          {/* LEADERS / CHAIRMAN PROFILES */}
+          {data.leaders && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-16"
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-10 text-center">Leadership</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {data.leaders.map((leader, index) => (
+                  <div key={index} className="bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
+                    <div className="p-8 text-center">
+                      <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-5 ring-4 ring-primary/10">
+                        <img
+                          src={leader.image}
+                          alt={leader.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <h3 className="text-xl font-bold text-text-primary">{leader.name}</h3>
+                      <p className="text-sm font-medium text-primary mt-1">{leader.title}</p>
+                      {leader.quote && (
+                        <p className="text-sm italic text-text-muted mt-3 max-w-sm mx-auto">
+                          "{leader.quote}"
+                        </p>
+                      )}
+                      <p className="text-text-muted text-sm mt-4 leading-relaxed">
+                        {leader.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* SVKM CHAIRMAN */}
+          {data.chairman && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-16"
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-10 text-center">Hon. Chairman</h2>
+              <div className="max-w-2xl mx-auto bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
+                <div className="p-8 text-center">
+                  <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-5 ring-4 ring-primary/10">
+                    <img
+                      src={data.chairman.image}
+                      alt={data.chairman.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-text-primary">{data.chairman.name}</h3>
+                  <p className="text-sm font-medium text-primary mt-1">{data.chairman.title}</p>
+                  <p className="text-text-muted text-sm mt-4 leading-relaxed max-w-lg mx-auto">
+                    {data.chairman.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* FOUNDERS (SVKM) */}
+          {data.founders && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-16"
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-10 text-center">Founding Fathers</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {data.founders.map((founder, index) => (
+                  <div key={index} className="bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
+                    <div className="p-8 text-center">
+                      <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-5 ring-4 ring-primary/10 bg-neutral-100">
+                        <img
+                          src={founder.image}
+                          alt={founder.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <h3 className="text-xl font-bold text-text-primary">{founder.name}</h3>
+                      <p className="text-sm font-medium text-primary mt-1">{founder.title}</p>
+                      <p className="text-text-muted text-sm mt-4 leading-relaxed">
+                        {founder.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
           {/* MISSION & VISION */}
           {(data.mission || data.vision) && (
-            <div className="grid md:grid-cols-2 gap-8 my-12">
+            <div className="grid md:grid-cols-2 gap-8 my-16">
               {data.mission && (
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -127,37 +246,110 @@ const OrganizationDetails = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="mb-12"
+              className="mb-16"
             >
               <h3 className="text-2xl font-bold text-text-primary mb-6 text-center">Our Goals</h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {data.goals.map((goal, index) => (
-                  <div key={index} className="flex items-start gap-4 p-4 bg-primary/5 rounded-xl">
-                    <div className="min-w-[24px] h-6 flex items-center justify-center rounded-full bg-primary text-white text-xs font-bold mt-0.5">
+                  <div key={index} className="flex items-start gap-4 p-5 bg-primary/5 rounded-xl border border-primary/10">
+                    <div className="min-w-[28px] h-7 flex items-center justify-center rounded-full bg-primary text-white text-xs font-bold mt-0.5">
                       {index + 1}
                     </div>
-                    <p className="text-text-muted text-sm font-medium">{goal}</p>
+                    <p className="text-text-muted text-sm font-medium leading-relaxed">{goal}</p>
                   </div>
                 ))}
               </div>
             </motion.div>
           )}
 
+          {/* RESEARCH AREAS (MMPSRPC) */}
+          {data.researchAreas && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-16"
+            >
+              <h3 className="text-2xl font-bold text-text-primary mb-6 text-center">Research Areas</h3>
+              <div className="flex flex-wrap justify-center gap-3">
+                {data.researchAreas.map((area, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full border border-primary/15 hover:bg-primary/15 transition-colors"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* COLLEGES LIST (KSV) */}
+          {data.colleges && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-16"
+            >
+              <h3 className="text-2xl font-bold text-text-primary mb-6 text-center">Constituent Colleges</h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {data.colleges.map((college, index) => (
+                  <div key={index} className="flex items-center gap-3 p-4 bg-card rounded-xl border border-border">
+                    <div className="w-2 h-2 rounded-full bg-primary shrink-0" />
+                    <span className="text-text-muted text-sm font-medium">{college}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* UNIVERSITY CELLS (KSV) */}
+          {data.universityCells && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-16"
+            >
+              <h3 className="text-2xl font-bold text-text-primary mb-6 text-center">University Cells & Departments</h3>
+              <div className="flex flex-wrap justify-center gap-3">
+                {data.universityCells.map((cell, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 bg-card text-text-muted text-sm font-medium rounded-full border border-border"
+                  >
+                    {cell}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* FEATURES */}
           {data.features && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
             >
               {data.features.map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-card p-6 rounded-xl shadow-sm border border-border hover:shadow-md transition-shadow"
+                  className="bg-card p-5 rounded-xl shadow-sm border border-border hover:shadow-md transition-shadow"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span className="font-semibold text-text-primary">{feature}</span>
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                      <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="font-semibold text-text-primary text-sm">{feature}</span>
                   </div>
                 </div>
               ))}
@@ -168,12 +360,13 @@ const OrganizationDetails = () => {
           {data.contact && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              className="mt-20 border-t border-border pt-12"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="border-t border-border pt-16"
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-8 text-center">
-                Contact Us
+                Contact
               </h2>
 
               <div className="grid lg:grid-cols-2 gap-10">

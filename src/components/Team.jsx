@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import teamData from "../data/teamMembers.json";
 import Leaderboard from "./Leaderboard";
+import { fetchResearchers, fetchAttendanceStats, fetchScoreStats } from "../lib/dataService";
 
 /* ---- helper to detect touch devices ---- */
 const isTouchDevice = () =>
@@ -45,7 +46,7 @@ const TrophyIcon = ({ className }) => (
 
 /* ---- CIRCULAR PROGRESS ---- */
 const CircularProgress = ({ percentage, colorClass }) => {
-  const radius = 30; //Increased radius to prevent overlap
+  const radius = 30;
   const stroke = 3.5; 
   const normalizedRadius = radius - stroke * 2;
   const circumference = normalizedRadius * 2 * Math.PI;
@@ -91,79 +92,94 @@ const CircularProgress = ({ percentage, colorClass }) => {
 /* ================= MAIN ================= */
 
 const Team = () => {
-  /* ---- Initialize with local data to ensure immediate render (SSR/Mobile fix) ---- */
-  const { faculty, students: localStudents, researchAssistants: localAssistants } = teamData;
+  /* ---- Local data as fallback ---- */
+  const { faculty: localFaculty, students: localStudents, researchAssistants: localAssistants } = teamData;
+  
+  const [faculty, setFaculty] = useState(localFaculty);
   const [students, setStudents] = useState(localStudents);
   const [researchAssistants, setResearchAssistants] = useState(localAssistants || []);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:8000/students")
-      .then((res) => {
-        if (!res.ok) {
-           throw new Error("Backend not reachable");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (!data || !data.students) return;
+    loadFromSupabase();
+  }, []);
 
-        // Helper to merge backend data with local JSON
-        const mergeData = (backendList, referenceLocalList) => {
-            return backendList.map((backendStudent) => {
-                const localStudent = referenceLocalList.find(
-                    (s) => s.name.trim().toLowerCase() === backendStudent.name.trim().toLowerCase()
-                );
-                return {
-                    ...backendStudent,
-                    image: localStudent?.image || "/team/default-avatar.png",
-                    Department: localStudent?.Department || "CE",
-                    Semester: localStudent?.Semester || "4th",
-                    Batch: localStudent?.Batch || "2024-2028",
-                    Institute: localStudent?.Institute || "LDRP-ITR",
-                    Linkedin: localStudent?.Linkedin || "",
-                    email: localStudent?.email || "",
-                    attendance_percentage: backendStudent.attendance_percentage ?? localStudent?.attendance_percentage,
-                    total_score: backendStudent.total_score ?? localStudent?.total_score
-                };
-            });
+  async function loadFromSupabase() {
+    try {
+      const [researchers, attData, scoreData] = await Promise.all([
+        fetchResearchers(),
+        fetchAttendanceStats(),
+        fetchScoreStats(),
+      ]);
+
+      // If Supabase returned no data, keep local
+      if (!researchers || researchers.length === 0) {
+        setLoaded(true);
+        return;
+      }
+
+      // Build attendance + score lookup
+      const attStats = attData?.stats || {};
+      const scoreMap = scoreData || {};
+
+      // Map Supabase researchers to card-compatible format
+      const mapResearcher = (r) => {
+        const att = attStats[r.id];
+        const attPct = att && att.total > 0 ? Math.round((att.present / att.total) * 100) : undefined;
+        const totalScore = scoreMap[r.id] ?? undefined;
+
+        return {
+          name: r.name,
+          image: r.image_url || "/team/default-avatar.png",
+          Department: r.department || "",
+          Semester: r.semester || "",
+          Batch: r.batch || "",
+          Institute: r.institute || "",
+          Linkedin: r.linkedin || "",
+          email: r.email || "",
+          attendance_percentage: attPct,
+          total_score: totalScore,
+          // Faculty-specific
+          role: r.role_title || "",
+          department: r.department || "",
+          specialization: r.specialization || "",
+          research: r.research_areas || "",
+          linkedin: r.linkedin || "",
         };
+      };
 
-        // Identify Research Assistants names for filtering
-        const raNames = (localAssistants || []).map(ra => ra.name.trim().toLowerCase());
+      const mapped = researchers.map(mapResearcher);
 
-        // Split backend data
-        const backendRAs = data.students.filter(s => raNames.includes(s.name.trim().toLowerCase()));
-        const backendStds = data.students.filter(s => !raNames.includes(s.name.trim().toLowerCase()));
+      const facultyList = mapped.filter((_, i) => researchers[i].role_type === 'faculty');
+      const raList = mapped.filter((_, i) => researchers[i].role_type === 'research_assistant');
+      const studentList = mapped.filter((_, i) => researchers[i].role_type === 'student');
 
-        // Merge and separate states
-        // Note: For RAs, we use localAssistants as reference. For regular students, localStudents.
-        // We only update if backend provided data. If backendRAs is empty but localAssistants exists,
-        // we might ideally want to keep local fallback, but current logic mimics "backend drives list".
-        // To support "local fallback" if backend lacks them (e.g. name mismatch), 
-        // we could augment the list. For now, sticking to the filtered backend lists to match existing behavior.
-        
-        if (backendRAs.length > 0) {
-            setResearchAssistants(mergeData(backendRAs, localAssistants || []));
-        }
-        if (backendStds.length > 0) {
-            setStudents(mergeData(backendStds, localStudents));
-        }
-      })
-      .catch((err) => {
-        console.warn("Using local data fallback:", err.message);
-      });
-  }, [localStudents, localAssistants]);
-  
+      if (facultyList.length > 0) setFaculty(facultyList);
+      if (raList.length > 0) setResearchAssistants(raList);
+      if (studentList.length > 0) setStudents(studentList);
+    } catch (err) {
+      console.warn("Supabase load failed, using local data:", err.message);
+    } finally {
+      setLoaded(true);
+    }
+  }
+
   const lead = faculty[0];
   const allStudentsForLeaderboard = [...researchAssistants, ...students];
 
   return (
-    <section id="team" className="pt-14 pb-16 lg:pb-24 px-4 lg:px-8">
-      <div className="max-w-7xl mx-auto space-y-20">
+    <section id="team" className="min-h-screen pt-6 pb-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto space-y-12">
+
+        {/* HEADER */}
+        <div className="text-center mb-2">
+          <h1 className="text-3xl sm:text-4xl font-bold text-text-primary mb-3">Our Researchers</h1>
+          <p className="text-text-muted max-w-2xl mx-auto">The talented team driving innovation and discovery at the Student Research Lab.</p>
+        </div>
 
         {/* ================= FACULTY TILE ================= */}
-        <div className="bg-white rounded-3xl px-6 lg:px-16 py-10 lg:py-14">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-8 text-neutral-800">
+        <div className="bg-white rounded-2xl px-6 lg:px-12 py-8 lg:py-10 border border-border">
+          <h2 className="text-2xl lg:text-3xl font-bold text-center mb-6 text-text-primary">
             Faculty
           </h2>
 
@@ -208,8 +224,8 @@ const Team = () => {
                 )}
 
                 <blockquote className="hidden lg:block pl-4 border-l-4 border-primary/30 italic text-neutral-600 mt-4">
-                  “Research is not about answers alone, but about cultivating the
-                  courage to ask better questions.”
+                  "Research is not about answers alone, but about cultivating the
+                  courage to ask better questions."
                 </blockquote>
               </div>
             </div>
@@ -247,8 +263,8 @@ const Team = () => {
                 text-neutral-600
               "
             >
-              “Research is not about answers alone, but about cultivating the
-              courage to ask better questions.”
+              "Research is not about answers alone, but about cultivating the
+              courage to ask better questions."
             </blockquote>
 
           </div>
@@ -257,7 +273,7 @@ const Team = () => {
 
 
         {/* ================= STUDENTS TILE ================= */}
-        <div className="bg-white rounded-3xl px-6 lg:px-16 py-10 lg:py-14">
+        <div className="bg-white rounded-2xl px-6 lg:px-12 py-8 lg:py-10 border border-border">
           
           {/* LEADERBOARD SECTION */}
           <Leaderboard students={allStudentsForLeaderboard} />
@@ -265,10 +281,10 @@ const Team = () => {
           {/* RESEARCH ASSISTANTS SECTION */}
           {researchAssistants.length > 0 && (
             <>
-                <h2 className="text-3xl font-bold text-center mb-12 text-neutral-800">
+                <h2 className="text-2xl font-bold text-center mb-8 text-text-primary">
                     Research Assistants
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 items-start mb-12">
                     {researchAssistants.map((student, i) => (
                     <StudentCard key={i} member={student} />
                     ))}
@@ -276,11 +292,11 @@ const Team = () => {
             </>
           )}
 
-          <h2 className="text-3xl font-bold text-center mb-12 text-neutral-800">
+          <h2 className="text-2xl font-bold text-center mb-8 text-text-primary">
             Student Researchers
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 items-start">
             {students.map((student, i) => (
               <StudentCard key={i} member={student} />
             ))}
@@ -297,92 +313,123 @@ const StudentCard = ({ member }) => {
   return (
     <div
       className="
-        bg-neutral-50
+        group
+        relative
+        bg-white
         rounded-2xl
-        p-5
-        text-center
-        transition-shadow
+        overflow-hidden
+        border border-neutral-100
+        transition-all
         duration-300
-        hover:shadow-lg
+        hover:shadow-xl
+        hover:-translate-y-1
         flex flex-col h-full
       "
     >
-      <div className="flex justify-center mb-3">
-        <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-sm">
-          <img
-            src={member.image || "/team/default-avatar.png"}
-            alt={member.name}
-            onError={(e) => (e.currentTarget.src = "/team/default-avatar.png")}
-            className="w-full h-full object-cover"
-          />
+      {/* CARD CONTENT */}
+      <div className="p-5 flex flex-col items-center h-full relative z-10 bg-white group-hover:bg-neutral-50/50 transition-colors">
+        <div className="mb-4 relative">
+          <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-md group-hover:scale-105 transition-transform duration-500">
+            <img
+              src={member.image || "/team/default-avatar.png"}
+              alt={member.name}
+              onError={(e) => (e.currentTarget.src = "/team/default-avatar.png")}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {/* Badge for Score/Attendance (Optional - visual cue) */}
+          {member.total_score > 0 && (
+            <div className="absolute -bottom-1 -right-1 bg-amber-100 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-white shadow-sm flex items-center gap-1">
+              <TrophyIcon className="w-3 h-3" />
+              {member.total_score}
+            </div>
+          )}
+        </div>
+
+        <div className="text-center flex-grow w-full">
+          <h4 className="font-bold text-lg text-neutral-800 mb-1 leading-tight flex items-center justify-center gap-1.5">
+            {member.name.trim()}
+            {member.Linkedin && (
+              <a
+                href={member.Linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0077b5] opacity-60 hover:opacity-100 transition-opacity"
+              >
+                <LinkedInIcon className="w-4 h-4" />
+              </a>
+            )}
+          </h4>
+          
+          <div className="inline-block px-3 py-1 rounded-full bg-neutral-100 text-neutral-500 text-xs font-semibold tracking-wide mb-3 uppercase">
+            {member.Department} • Sem {member.Semester}
+          </div>
+
+          <p className="text-xs text-neutral-400 font-medium mb-4">
+             {member.Institute}
+          </p>
+
+          {/* Stats Row */}
+          {(member.attendance_percentage !== undefined || member.total_score !== undefined) && (
+            <div className="flex items-center justify-center gap-6 mt-auto pt-4 border-t border-neutral-100 w-full">
+              {member.attendance_percentage !== undefined && (
+                <div className="flex flex-col items-center">
+                  <span className={`text-sm font-bold ${
+                    member.attendance_percentage >= 75 ? "text-emerald-600" : 
+                    member.attendance_percentage >= 60 ? "text-amber-500" : "text-rose-500"
+                  }`}>
+                    {member.attendance_percentage}%
+                  </span>
+                  <span className="text-[9px] uppercase font-bold text-neutral-400 tracking-wider">Attendance</span>
+                </div>
+              )}
+              
+              {member.total_score !== undefined && (
+                <div className="flex flex-col items-center">
+                  <span className="text-sm font-bold text-amber-600">
+                    {member.total_score}
+                  </span>
+                  <span className="text-[9px] uppercase font-bold text-neutral-400 tracking-wider">Score</span>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
-      <div className="flex-grow">
-        <h4 className="font-bold text-lg text-neutral-800 mb-1 leading-tight max-w-[12rem] mx-auto">
-          <span className="inline">
-            {member.name.trim()}
-          </span>
-          {member.Linkedin && (
-            <a
-              href={member.Linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block align-middle ml-1 text-primary/70 hover:text-primary transition"
-            >
-              <LinkedInIcon className="w-4 h-4" />
-            </a>
-          )}
-        </h4>
-        <p className="text-xs font-medium text-neutral-500 mb-4 uppercase tracking-wide">
-          {member.Department} · {member.Semester} Sem
-        </p>
-
-        <div className="mb-4">
-          <p className="text-xs text-neutral-500">
-            <span className="font-semibold text-neutral-700">Batch:</span> {member.Batch}
+      {/* HOVER OVERLAY - RESEARCH INTERESTS */}
+      <div 
+        className="
+          absolute inset-0 z-20
+          bg-gradient-to-t from-primary/95 via-primary/90 to-primary/80
+          backdrop-blur-[2px]
+          p-6
+          flex flex-col justify-center items-center text-center
+          translate-y-full group-hover:translate-y-0
+          transition-transform duration-300 ease-out
+          text-white
+        "
+      >
+        <h5 className="font-bold text-sm uppercase tracking-widest mb-3 border-b border-white/20 pb-2 w-full">
+          Research Areas
+        </h5>
+        
+        {member.research ? (
+          <p className="text-sm font-medium leading-relaxed">
+            {member.research}
           </p>
-          <p className="text-xs text-neutral-500 mt-0.5">
-             {member.Institute}
-          </p>
-        </div>
+        ) : (
+          <div className="space-y-2">
+            <p className="text-sm opacity-90 italic">
+              "Exploring new frontiers in technology and engineering."
+            </p>
+          </div>
+        )}
 
-        {/* Attendance & Score Stats Container */}
-        {(member.attendance_percentage !== undefined || member.total_score !== undefined) && (
-          <div className="flex items-center justify-center gap-4 bg-white border border-neutral-100 rounded-xl p-3 shadow-sm">
-            
-            {/* Attendance Section */}
-            {member.attendance_percentage !== undefined && (
-              <div className="flex flex-col items-center gap-1">
-                <CircularProgress 
-                  percentage={member.attendance_percentage} 
-                  colorClass={
-                    member.attendance_percentage >= 75 ? "text-green-500" : 
-                    member.attendance_percentage >= 60 ? "text-yellow-500" : "text-red-500"
-                  }
-                />
-                <span className="text-[9px] uppercase font-bold text-neutral-400">Attendance</span>
-              </div>
-            )}
-
-            {/* Divider */}
-            {member.attendance_percentage !== undefined && member.total_score !== undefined && (
-                <div className="w-px h-8 bg-neutral-100"></div>
-            )}
-
-            {/* Score Section */}
-            {member.total_score !== undefined && (
-              <div className="flex flex-col items-center gap-1">
-                <div className="flex items-center justify-center w-10 h-10 bg-yellow-50 rounded-full text-yellow-600">
-                    <TrophyIcon className="w-5 h-5" />
-                </div>
-                <div className="flex flex-col leading-none">
-                    <span className="text-sm font-bold text-neutral-800">{member.total_score}</span>
-                    <span className="text-[9px] uppercase font-bold text-neutral-400">Score</span>
-                </div>
-              </div>
-            )}
-            
+        {member.specialization && (
+          <div className="mt-4 pt-4 border-t border-white/20 w-full">
+            <span className="block text-[10px] uppercase opacity-70 mb-1">Specialization</span>
+            <span className="text-sm font-semibold">{member.specialization}</span>
           </div>
         )}
       </div>

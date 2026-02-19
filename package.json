@@ -10,10 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.97.0",
+    "@tanstack/react-query": "^5.90.21",
+    "cloudinary": "^2.9.0",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.3.1",
     "framer-motion": "^12.26.2",
+    "lucide-react": "^0.575.0",
     "motion": "^12.23.26",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-hot-toast": "^2.6.0",
     "react-masonry-css": "^1.0.16",
     "react-router-dom": "^6.23.1",
     "three": "^0.182.0"
@@ -32,6 +39,6 @@
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.3",
-    "vite": "^5.4.10"
+    "vite": "^7.3.1"
   }
 }
