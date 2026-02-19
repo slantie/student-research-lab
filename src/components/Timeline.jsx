@@ -125,14 +125,14 @@ const timelineSteps = [
   },
   {
     step: "Dec 2025",
-    title: "Alumini Meet",
-    description: "An interactive gathering where alumni reconnect, share experiences, and inspire current members with their journeys and insights.",
+    title: "Alumni Meet",
+    description: "An interactive gathering where alumni reconnect, share experiences, and inspire SRL members with their journeys and insights.",
     icon: <MedalIcon />,
   },
   {
     step: "Jan 2026",
     title: "Organized ImpactThon and InnovAItion Finalists",
-    description: "SRL students became finalists in an InnovAItion and successfully organized ImpactThon promoting Research,Prototype,Impact.",
+    description: "SRL students became finalists in an InnovAItion hackathon and successfully organized ImpactThon promoting Research | Prototype | Impact.",
     icon: <GlobeIcon />,
   },
   {
