@@ -71,7 +71,7 @@ const Contact = () => {
                         <div>
                             <h3 className="font-semibold text-neutral-800 mb-1">Email Us</h3>
                             <a href="mailto:srl@ldrp.ac.in" className="text-primary hover:underline font-medium block">srl@ldrp.ac.in</a>
-                            <a href="mailto:info@mmpsrpc.in" className="text-primary hover:underline font-medium block mt-1">info@mmpsrpc.in</a>
+                            <a href="mailto:mmpsrc.ksv@gmail.com" className="text-primary hover:underline font-medium block mt-1">mmpsrc.ksv@gmail.com</a>
                         </div>
                     </div>
 

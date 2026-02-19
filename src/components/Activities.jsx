@@ -1,12 +1,14 @@
+import Pic3 from "../assets/gallery/Pic3.png";
 import { useState, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import Photo1 from "../assets/gallery/Photo1.webp";
 import Photo2 from "../assets/gallery/Photo2.webp";
 import Photo3 from "../assets/gallery/Photo3.webp";
 import Photo4 from "../assets/gallery/Photo4.webp";
+import Pic2 from "../assets/gallery/pic2.png";
+import Pic1 from "../assets/gallery/pic1.png";
+import Pic4 from "../assets/gallery/pic4.png";
 
-
-const Gallery = () => {
+const Activities = () => {
 	const [activeItem, setActiveItem] = useState(null);
 	const [isPopupVisible, setIsPopupVisible] = useState(false);
 
@@ -14,32 +16,30 @@ const Gallery = () => {
 		{
 			title: "Faculty-Led Research Sessions",
 			description: "Guided research discussions and mentoring sessions conducted by experienced faculty members.",
-			image: Photo2,
+			image: Pic2,
 			year: 2026,
 			link: "https://www.linkedin.com/posts/mmpsrpc_ksv-svkm-mmpsrpc-activity-7417800043421843456-rV2a?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKU7EwBd6ANuk69I1ptc1jInauK8Qjbvhc",
 			brief: "At the Students Research Lab under the M. M. Patel Students Research Project Cell (KSV-MMPSRPC), Kadi Sarva Vishwavidyalaya, Gandhinagar, a research-oriented session was conducted focusing on algorithm optimization within a problem-driven research framework.Thesession emphasized analytical thinking, performance evaluation, and methodological refinement of algorithms. Students engaged in structured discussions, comparative analysis of algorithmic approaches, and collaborative exploration of optimization techniques aligned with research standards.The activity aimed to cultivate research aptitude by strengthening logical rigor, encouraging evidence-based reasoning, and promoting a systematic, experimentation-focused approach to computational problem solving.",
-			// date removed
+			date: "3 January 2026",
 		},
 		// Alumni Connect Session (2025) removed
 		{
 			title: "Technical Enrichment ",
 			description: "Team-based activities designed to promote collaboration and problem-solving skills.",
-			image: Photo1,
+			image: Pic1,
 			year: 2026,
 			link: "https://www.linkedin.com/posts/mmpsrpc_mmpsrpc-ksv-svkm-activity-7411274469664759809-rDsK?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKU7EwBd6ANuk69I1ptc1jInauK8Qjbvhc",
 			brief:"The session encouraged students to apply concepts through discussion and collaborative team work.The activity helped students strengthen understanding logical concepts and develop a structured approach to problem solving.At KSV, the Students Research Lab continues to nurture a dynamic academic environment one that consistently sharpens minds and promotes 360° student development across disciplines.",
-			// date removed
+			date: "1mo ago",
 		},
-		// Competitive Challenges (2022) removed
-		// --- Additional Items for Masonry Verification ---
 		{
 			title: "Innovation Hackathon",
 			description: "A 24-hour hackathon where students build prototypes to solve real-world problems.",
-			image: Photo3,
+			image: Pic3,
 			year: 2026,
 			link: "https://example.com/hackathon",
 			brief: "Students innovate and build solutions in a time-bound event.",
-			// date removed
+			date: "10 & 11 January 2026",
 		},
 		// Industry Expert Talk (2025) removed
 		{
@@ -48,14 +48,14 @@ const Gallery = () => {
 			image: Photo3,
 			year: 2025,
 			link: "https://www.linkedin.com/posts/mmpsrpc_mmpsrpc-ksv-svkm-activity-7403658696884412416-BWwn?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKU7EwBd6ANuk69I1ptc1jInauK8Qjbvhc",
-			brief: "Inside this lab, students are not just creating projects; they are nurturing a research-driven approach where ideas develop with purpose, conversations bring clarity, and collaboration happens naturally as students learn from one another's strengths.",
-			
+			brief: "Inside this lab, students are not just creating projects; they are nurturing a research-driven approach where ideas develop with purpose, conversations bring clarity, and collaboration happens naturally as students learn from one another’s strengths.",
+			date: "2mo ago",
 		},
-		
+		// Robotics Workshop (2022) removed
 		{
 			title: "Alumni Meet",
 			description: "Connecting with past students to build a strong professional network.",
-			image: Photo4,
+			image: Pic4,
 			year: 2026,
 			link: "https://example.com/alumni-meet",
 			brief: "An event to connect current students with alumni for networking.",
@@ -68,17 +68,16 @@ const Gallery = () => {
 			year: 2025,
 			link: "https://www.linkedin.com/posts/mmpsrpc_mmpsrpc-ksv-studentsresearchlab-activity-7405172370459668481-6zQI?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKU7EwBd6ANuk69I1ptc1jInauK8Qjbvhc",
 			brief: "Students Research Lab shows students steadily moving beyond routine academic thinking. Weekly topics and spontaneous exercises encourage sharper reasoning, and deeper engagement with ideas, all of which strengthen their research mindset.",
-			// date removed
+			date: "2mo ago",
 		},
 	];
 
-	// Group by year
 	const groupedItems = galleryItems.reduce((acc, item) => {
 		(acc[item.year] = acc[item.year] || []).push(item);
 		return acc;
 	}, {});
 
-	// Sort years descending
+
 	const sortedYears = Object.keys(groupedItems).sort((a, b) => b - a);
 
 	/* ESC closes popup */
@@ -105,30 +104,29 @@ const Gallery = () => {
 	const openPopup = (item) => {
 		setActiveItem(item);
 		setPopupBorderColor(getRandomColor());
+		requestAnimationFrame(() => setIsPopupVisible(true));
 	};
 
 	// Animate border color while popup is open
 	useEffect(() => {
-		if (activeItem) {
-			document.body.style.overflow = "hidden"; // Disable scroll
+		if (isPopupVisible) {
 			colorIntervalRef.current = setInterval(() => {
 				setPopupBorderColor(getRandomColor());
 			}, 1200); // Change color every 1.2s
 		} else {
 			clearInterval(colorIntervalRef.current);
 		}
-		return () => {
-			clearInterval(colorIntervalRef.current);
-		};
-	}, [activeItem]);
+		return () => clearInterval(colorIntervalRef.current);
+	}, [isPopupVisible]);
 
 	const closePopup = () => {
-		setActiveItem(null);
+		setIsPopupVisible(false);
+		setTimeout(() => setActiveItem(null), 300);
 	};
 
 	return (
 		<section
-			id="gallery"
+			id="activities"
 			className="
 				pt-8 sm:pt-12
 				pb-10 sm:pb-16
@@ -190,6 +188,11 @@ const Gallery = () => {
 											/>
                       
 											<div className="p-4">
+												 {item.date && (
+													 <div className="text-xs text-neutral-500 font-medium mb-1 uppercase tracking-wider">
+														 {item.date}
+													 </div>
+												 )}
 												 <h3 className="text-base font-semibold text-neutral-800 mb-1 group-hover:text-primary transition-colors">
 													 {item.title}
 												 </h3>
@@ -208,34 +211,27 @@ const Gallery = () => {
 			</div>
 
 			{/* POPUP */}
-			<AnimatePresence onExitComplete={() => (document.body.style.overflow = "auto")}>
 			{activeItem && (
-				<motion.div
-					key="gallery-overlay"
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					exit={{ opacity: 0 }}
-					transition={{ duration: 0.5, ease: "easeInOut" }}
+				<div
 					onClick={closePopup}
-					className="
+					className={`
 						fixed inset-0 z-50
 						flex items-center justify-center
 						px-4 sm:px-6
-						bg-black/60 backdrop-blur-sm
-					"
+						transition-all duration-300 ease-out
+						${isPopupVisible ? "bg-black/60 backdrop-blur-sm opacity-100" : "bg-black/0 opacity-0"}
+					`}
 				>
-					<motion.div
-						initial={{ scale: 0.9, opacity: 0, y: 20 }}
-						animate={{ scale: 1, opacity: 1, y: 0 }}
-						exit={{ scale: 0.9, opacity: 0, y: 20 }}
-						transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
+					<div
 						onClick={(e) => e.stopPropagation()}
-						className="
+						className={`
 							bg-white rounded-2xl
 							max-w-5xl w-full
 							grid grid-cols-1 md:grid-cols-2
 							overflow-hidden
-						"
+							transform transition-all duration-300 ease-out
+							${isPopupVisible ? "scale-100 opacity-100" : "scale-95 opacity-0"}
+						`}
 						style={{
 							border: '4px solid #00F0FF',
 							  boxShadow: '0 0 12px 2px #00F0FF, 0 0 18px 4px #00BFFF, 0 0 24px 6px #00F0FF',
@@ -275,14 +271,17 @@ const Gallery = () => {
 							<div className="text-neutral-700 text-sm mb-2">
 								<strong>Brief:</strong> {activeItem.brief}
 							</div>
-							{/* Date removed as per request */}
+							{activeItem.date && (
+								<div className="text-neutral-500 text-sm mt-4 italic">
+									{activeItem.date}
+								</div>
+							)}
 						</div>
-					</motion.div>
-				</motion.div>
+					</div>
+				</div>
 			)}
-			</AnimatePresence>
 		</section>
 	);
 };
 
-export default Gallery;
+export default Activities;

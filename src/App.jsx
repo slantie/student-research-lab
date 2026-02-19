@@ -14,7 +14,7 @@ import Objectives from "./components/Objectives";
 import JoinLab from "./components/JoinLab";
 
 import ResearchAreas from "./components/ResearchAreas";
-import Gallery from "./components/Gallery";
+import Activities from "./components/Activities";
 import Team from "./components/Team";
 import BackToTop from "./components/BackToTop";
 import OrganizationDetails from "./components/OrganizationDetails";
@@ -66,7 +66,7 @@ export default function App() {
                   }
                 />
                 <Route path="/research" element={<ResearchAreas />} />
-                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/activities" element={<Activities />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/about/contact" element={<Contact />} />
                 <Route path="/about/:orgId" element={<OrganizationDetails />} />

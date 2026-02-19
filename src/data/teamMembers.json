@@ -10,6 +10,17 @@
       "linkedin": "https://www.linkedin.com/in/dr-himani-trivedi-59210199/",
       "email": "himani_ce@ldrp.ac.in",
       "institute": "LDRP-ITR"
+    },
+    {
+      "name": "Mr. Parth Patel",
+      "role": "Assistant Professor at LDRP-ITR | Admission Nodal Officer | Kadi Sarva Vishwavidyalaya",
+      "department": "Mechanical Engineering",
+      "specialization": "Sustainable Construction",
+      "research": "Hemp in Building, Sustainable Construction, Green Building",
+      "image": "/team/faculty/parth-sir.webp",
+      "linkedin": "https://www.linkedin.com/in/parth-patel-54b4b6100/",
+      "email": "parthpatel55555@gmail.com",
+      "institute": "Kadi Sarva Vishwavidyalaya (KSV)"
     }
   ],
   "students": [
@@ -22,8 +33,8 @@
       "Semester": "1st",
       "Batch": "2025-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 85,
-      "total_score": 120
+      "attendance_percentage": 7.69,
+      "total_score": 5
     },
     {
       "name": "Kansara Dev Dharmeshkumar",
@@ -34,8 +45,8 @@
       "Semester": "4th",
       "Batch": "2024-2028",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 92,
-      "total_score": 145
+      "attendance_percentage": 84.62,
+      "total_score": 35.0
     },
     {
       "name": "Gajjar Antra Ashvinkumar",
@@ -46,8 +57,8 @@
       "Semester": "4th",
       "Batch": "2024-2028",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 78,
-      "total_score": 95
+      "attendance_percentage": 84.62,
+      "total_score": 34.5
     },
     {
       "name": "Kumavat Yash Nenaram",
@@ -58,8 +69,8 @@
       "Semester": "4th",
       "Batch": "2024-2028",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 88,
-      "total_score": 110
+      "attendance_percentage": 84.62,
+      "total_score": 34.5
     },
     {
       "name": "Dabhi Chrisha Manish",
@@ -70,8 +81,8 @@
       "Semester": "4th",
       "Batch": "2024-2028",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 95,
-      "total_score": 160
+      "attendance_percentage": 84.62,
+      "total_score": 35.5
     },
     {
       "name": "Rudr Jayeshkumar Halvadiya",
@@ -82,8 +93,8 @@
       "Semester": "4th",
       "Batch": "2024-2028",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 82,
-      "total_score": 105
+      "attendance_percentage": 84.62,
+      "total_score": 34.5
     },
     {
       "name": "Pragati Varu",
@@ -94,8 +105,8 @@
       "Semester": "4th",
       "Batch": "2024-2028",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 90,
-      "total_score": 135
+      "attendance_percentage": 38.46,
+      "total_score": 7.0
     },
     {
       "name": "Aayush Viral Pandya",
@@ -106,8 +117,8 @@
       "Semester": "4th",
       "Batch": "2024-2028",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 98,
-      "total_score": 180
+      "attendance_percentage": 84.62,
+      "total_score": 25.5
     },
     {
       "name": "Mahi Nitinchandra Parmar",
@@ -118,8 +129,8 @@
       "Semester": "4th",
       "Batch": "2024-2028",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 89,
-      "total_score": 125
+      "attendance_percentage": 84.62,
+      "total_score": 28.0
     },
     {
       "name": "Honey Modha",
@@ -130,8 +141,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 75,
-      "total_score": 85
+      "attendance_percentage": 7.69,
+      "total_score": 5
     },
     {
       "name": "Prem Raichura",
@@ -142,8 +153,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 86,
-      "total_score": 115
+      "attendance_percentage": 7.69,
+      "total_score": 5
     },
     {
       "name": "Hetvi Hinsu",
@@ -154,8 +165,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 91,
-      "total_score": 140
+      "attendance_percentage": 23.08,
+      "total_score": 10.5
     },
     {
       "name": "Patel Banshari Rahulkumar",
@@ -166,8 +177,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 80,
-      "total_score": 100
+      "attendance_percentage": 84.62,
+      "total_score": 53.5
     },
     {
       "name": "Mihir Patel",
@@ -178,8 +189,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 93,
-      "total_score": 150
+      "attendance_percentage": 61.54,
+      "total_score": 17.5
     },
     {
       "name": "Heny Patel",
@@ -190,8 +201,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 84,
-      "total_score": 108
+      "attendance_percentage": 61.54,
+      "total_score": 17.5
     },
     {
       "name": "Patel Krish Himanshu",
@@ -202,8 +213,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 87,
-      "total_score": 118
+      "attendance_percentage": 92.31,
+      "total_score": 54.0
     },
     {
       "name": "Pande Hemant Rameshwarkumar",
@@ -214,8 +225,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 96,
-      "total_score": 170
+      "attendance_percentage": 92.31,
+      "total_score": 58.0
     },
     {
       "name": "Devda Rachita Bharatsinh",
@@ -226,8 +237,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 79,
-      "total_score": 98
+      "attendance_percentage": 61.54,
+      "total_score": 14.0
     },
     {
       "name": "Patel Jainee Hasmukhbhai",
@@ -238,8 +249,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 94,
-      "total_score": 155
+      "attendance_percentage": 69.23,
+      "total_score": 45.5
     },
     {
       "name": "Krishna Bhatt",
@@ -250,8 +261,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 81,
-      "total_score": 102
+      "attendance_percentage": 30.77,
+      "total_score": 4.0
     },
     {
       "name": "Chavda Yashvi Surendrasinh",
@@ -262,8 +273,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 88,
-      "total_score": 122
+      "attendance_percentage": 61.54,
+      "total_score": 14.0
     },
     {
       "name": "Padh Charmi Ketankumar",
@@ -274,8 +285,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 90,
-      "total_score": 130
+      "attendance_percentage": 15.38,
+      "total_score": 9.5
     },
     {
       "name": "Panchal Henit Shaileshbhai",
@@ -286,8 +297,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 76,
-      "total_score": 88
+      "attendance_percentage": 53.85,
+      "total_score": 16.5
     },
     {
       "name": "Jenish Sorathiya",
@@ -298,8 +309,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "VSITR",
-      "attendance_percentage": 83,
-      "total_score": 107
+      "attendance_percentage": 92.31,
+      "total_score": 49.5
     },
     {
       "name": "Kanksha Keyur Buch",
@@ -310,8 +321,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 97,
-      "total_score": 175
+      "attendance_percentage": 61.54,
+      "total_score": 14.0
     },
     {
       "name": "Janki Chitroda",
@@ -322,8 +333,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 85,
-      "total_score": 115
+      "attendance_percentage": 53.85,
+      "total_score": 9.0
     },
     {
       "name": "Rohan Thakar",
@@ -334,8 +345,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 82,
-      "total_score": 95
+      "attendance_percentage": 46.15,
+      "total_score": 10.0
     },
     {
       "name": "Kanudawala Zeel PareshKumar",
@@ -346,8 +357,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 92,
-      "total_score": 145
+      "attendance_percentage": 46.15,
+      "total_score": 12.0
     },
     {
       "name": "Zenisha Devani",
@@ -358,8 +369,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 89,
-      "total_score": 128
+      "attendance_percentage": 15.38,
+      "total_score": 6
     },
     {
       "name": "Yajurshi Velani",
@@ -370,8 +381,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 88,
-      "total_score": 120
+      "attendance_percentage": 53.85,
+      "total_score": 14.0
     },
     {
       "name": "Parva Kumar",
@@ -382,8 +393,8 @@
       "Semester": "6th",
       "Batch": "2023-2027",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 94,
-      "total_score": 165
+      "attendance_percentage": 7.69,
+      "total_score": 5
     },
     {
       "name": "Ridham Patel",
@@ -394,8 +405,8 @@
       "Semester": "8th",
       "Batch": "2022-2026",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 91,
-      "total_score": 140
+      "attendance_percentage": 7.69,
+      "total_score": 5
     },
     {
       "name": "Krutika Vijaybhai Patel",
@@ -406,8 +417,8 @@
       "Semester": "8th",
       "Batch": "2022-2026",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 87,
-      "total_score": 115
+      "attendance_percentage": 0.0,
+      "total_score": 0
     }
   ],
   "researchAssistants": [
@@ -420,8 +431,8 @@
       "Semester": "8th",
       "Batch": "2022-2026",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 99,
-      "total_score": 190
+      "attendance_percentage": 92.31,
+      "total_score": 84.0
     },
     {
       "name": "Nancy Rajesh Patel",
@@ -432,8 +443,8 @@
       "Semester": "8th",
       "Batch": "2022-2026",
       "Institute": "LDRP-ITR",
-      "attendance_percentage": 85,
-      "total_score": 110
+      "attendance_percentage": 92.31,
+      "total_score": 84.0
     }
   ]
 }

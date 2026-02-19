@@ -63,12 +63,12 @@ const Footer = () => {
                   Research
                 </Link>
 
-                <Link to="/gallery" onClick={scrollToTop} className="hover:underline">
-                  Gallery
+                <Link to="/activities" onClick={scrollToTop} className="hover:underline">
+                  Activities
                 </Link>
 
                 <Link to="/team" onClick={scrollToTop} className="hover:underline">
-                  Team
+                  Researchers
                 </Link>
 
                 <a href="#join" className="hover:underline">
@@ -84,9 +84,9 @@ const Footer = () => {
                   Appointment
                 </a>
 
-                <a href="#contact" className="hover:underline">
-                  Contact
-                </a>
+                <Link to="/about/contact" onClick={scrollToTop} className="hover:underline">
+                  Contact Us
+                </Link>
               </div>
             </div>
 
@@ -103,8 +103,7 @@ const Footer = () => {
               </p>
 
               <div className="flex flex-col gap-1 text-xs text-[#134E4A]/80 mb-2">
-                 <a href="mailto:srl@ldrp.ac.in" className="hover:underline">srl@ldrp.ac.in</a>
-                 <a href="mailto:info@mmpsrpc.in" className="hover:underline">info@mmpsrpc.in</a>
+                 <a href="mailto:mmpsrc.ksv@gmail.com" className="hover:underline">mmpsrc.ksv@gmail.com</a>
               </div>
             </div>
 

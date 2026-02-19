@@ -118,28 +118,28 @@ const GlobeIcon = () => (
 
 const timelineSteps = [
   {
-    step: "2025",
-    title: "Lab Founded",
-    description: "The Student Research Lab was established with a vision to foster interdisciplinary research.",
+    step: "Jan 2025",
+    title: "AI for Gender Empowerment",
+    description: "Launched research on designing inclusive, bias-aware intelligent systems.",
     icon: <RocketIcon />,
   },
   {
-    step: "2026",
-    title: "First Major Grant",
-    description: "Targeting significant funding to upgrade lab infrastructure and support student-led projects.",
-    icon: <BanknoteIcon />,
+    step: "Mar 2025",
+    title: "Predictive Healthcare",
+    description: "Developed AI models for disease prediction & health risk analysis.",
+    icon: <MedalIcon />,
   },
   {
-    step: "2027",
-    title: "National Recognition",
-    description: "Aiming for student projects to be selected for national-level exhibitions.",
+    step: "June 2025",
+    title: "Global Stage at NYC",
+    description: "Presented Sustainability & Ethical Innovation research at Cornell University.",
+    icon: <GlobeIcon />,
+  },
+  {
+    step: "Sept 2025",
+    title: "National Finale",
+    description: "Selected for the National Poster Competition on AI Powered Research.",
     icon: <TrophyIcon />,
-  },
-  {
-    step: "2028",
-    title: "Industry Partnerships",
-    description: "Collaborating with leading tech companies to provide mentorship and internships.",
-    icon: <HandshakeIcon />,
   },
 ];
 

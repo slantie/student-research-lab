@@ -20,7 +20,7 @@ const Navbar = () => {
       ],
     },
     { label: "Research", path: "/research" },
-    { label: "Gallery", path: "/gallery" },
+    { label: "Activities", path: "/activities" },
     { label: "Researchers", path: "/team" },
   ];
 
