@@ -33,7 +33,7 @@ const Activities = () => {
 			date: "1mo ago",
 		},
 		{
-			title: "Innovation Hackathon",
+			title: "InnovAItion Hackathon",
 			description: "A 24-hour hackathon where students build prototypes to solve real-world problems.",
 			image: Pic3,
 			year: 2026,
@@ -56,7 +56,7 @@ const Activities = () => {
 			title: "Alumni Meet",
 			description: "Connecting with past students to build a strong professional network.",
 			image: Pic4,
-			year: 2026,
+			year: 2025,
 			link: "https://example.com/alumni-meet",
 			brief: "An event to connect current students with alumni for networking.",
 			date: "28 December 2025",
@@ -68,7 +68,7 @@ const Activities = () => {
 			year: 2025,
 			link: "https://www.linkedin.com/posts/mmpsrpc_mmpsrpc-ksv-studentsresearchlab-activity-7405172370459668481-6zQI?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKU7EwBd6ANuk69I1ptc1jInauK8Qjbvhc",
 			brief: "Students Research Lab shows students steadily moving beyond routine academic thinking. Weekly topics and spontaneous exercises encourage sharper reasoning, and deeper engagement with ideas, all of which strengthen their research mindset.",
-			date: "December 2025",
+			date: "December",
 		},
 	];
 

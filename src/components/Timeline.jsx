@@ -131,8 +131,8 @@ const timelineSteps = [
   },
   {
     step: "Jan 2026",
-    title: "Organized ImpactThon and Innovaition Finalists",
-    description: "SRL students became finalists in an Innovaition and successfully organized ImpactThon promoting Research,Prototype,Impact.",
+    title: "Organized ImpactThon and InnovAItion Finalists",
+    description: "SRL students became finalists in an InnovAItion and successfully organized ImpactThon promoting Research,Prototype,Impact.",
     icon: <GlobeIcon />,
   },
   {
