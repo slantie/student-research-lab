@@ -107,7 +107,7 @@ const JoinLab = () => {
           {/* CTA BUTTON */}
           <div className="flex justify-center">
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfvRBJzeQJy62QXnOlN9xX4VMEWV3EGdorRlJ_bev9sVANdMQ/viewform?usp=dialog"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfAagn_PS0HSOdzX-lZx7qjKwa37Nd1sPHFWxSyYrj2r7aXZQ/viewform"
               target="_blank"
               rel="noreferrer"
               className="btn-primary"
